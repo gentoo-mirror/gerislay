@@ -1,0 +1,261 @@
+Patches (against MPlayer CVS of 8 Nov 2007) to allow mplayer
+to play stereo in a high-resolution quadbuffered OpenGL window,
+using the "gl2" video driver.
+Adapted from Gabriel A. v. Winckler's "gl" patch in
+    http://www.itdp.de/mplayer-dev-eng/2005-06/msg00361.html
+
+The advantage of this over Winckler's 2005 patch is that
+it works with the "gl2" driver (as opposed to "gl").
+gl2 breaks the image into multiple texture tiles, and allows
+playing movies which are larger than the graphics card's texture limit.
+
+I know this code isn't quite right -- in order to get the
+window sized properly, you have to explicitly specify the "-x" and "-y"
+options.  Otherwise it does something screwy -- I'm not sure what,
+but the fact that the source movie is twice as wide as normal confuses
+the default window sizing logic, and I don't understand how to fix it.
+Hope someone who understands mplayer can.
+
+Anyway, typical usage on a 1920x1080 stereo display might be:
+
+    mplayer -vo gl2:stereo  -x 3840 -y 1072  file.mpeg
+
+Note the -vo argument starts with lowercase GL2, not g twelve!
+
+Each 3840x1072 frame of the MPEG was the result of
+gluing two 1920x1072 left- and right-eye images side by side.
+
+
+   Stuart Levy, slevy@ncsa.uiuc.edu, March (and November), 2007
+
+2009 some changes to the gl2 driver were performed. I modified the patch
+to apply over mplayer-1.0_rc4_p20091026-r1.
+
+   Jürgen Löb, jloeb@main-host.de, January 2010
+
+I modified the patch to apply over mplayer-1.1-r1.
+
+  Wojciech Myrda, vojcek@tlen.pl, July 2012
+
+--- libvo/vo_gl2.c.orig	2007-11-08 16:04:39.841811388 -0600
++++ libvo/vo_gl2.c	2007-11-16 19:24:06.415341836 -0600
+@@ -23,6 +23,7 @@
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <string.h>
++#include <math.h>
+ 
+ #include "config.h"
+ #include "mp_msg.h"
+@@ -60,6 +61,9 @@
+ /* local data */
+ static unsigned char *ImageData=NULL;
+ 
++// QuadBuffer Stereo
++static unsigned char quadbuffer_stereo = 0;
++
+ static MPGLContext glctx;
+ 
+ static uint32_t image_width;
+@@ -377,23 +383,31 @@
+ }
+ 
+ 
+-static void drawTextureDisplay (void)
++static void drawTextureDisplay ( float tex0, float tex1 )
+ {
+   struct TexSquare *square = texgrid;
+   int x, y;
++  int itx0, itx1;
++  GLfloat fxoff = tex0;
++  GLfloat fxscale = 1.0f / (tex1 - tex0);
++
+ 
+   glColor4f(1.0,1.0,1.0,1.0);
+ 
++  itx0 = (int) (tex0 * texnumx);
++  itx1 = (int) ceilf(tex1 * texnumx);
++
+   if (is_yuv)
+     glEnableYUVConversion(GL_TEXTURE_2D, use_yuv);
+   for (y = 0; y < texnumy; y++) {
+     int thish = texture_height;
+     if (y == texnumy - 1 && image_height % texture_height)
+       thish = image_height % texture_height;
+-    for (x = 0; x < texnumx; x++) {
++    for (x = itx0; x < itx1; x++) {
+       int thisw = texture_width;
+       if (x == texnumx - 1 && image_width % texture_width)
+         thisw = image_width % texture_width;
++      square = texgrid + y*texnumx + x;
+       glBindTexture (GL_TEXTURE_2D, square->texobj);
+       if (is_yuv) {
+         mpglActiveTexture(GL_TEXTURE1);
+@@ -409,11 +423,10 @@
+                     0, 0, thisw, thish, 0);
+       }
+ 
+-      glDrawTex(square->fx, square->fy, square->fw, square->fh,
++      glDrawTex((square->fx - fxoff) * fxscale, square->fy, square->fw * fxscale, square->fh,
+                 0, 0, texture_width, texture_height,
+                 texture_width, texture_height,
+                 0, is_yuv, 0);
+-      square++;
+     } /* for all texnumx */
+   } /* for all texnumy */
+   if (is_yuv)
+@@ -432,6 +435,8 @@
+   };
+   mp_msg(MSGT_VO,MSGL_V,"[gl2] Resize: %dx%d\n",x,y);
+   if(aspect_scaling()) {
++    if ( quadbuffer_stereo )
++	glDrawBuffer(GL_BACK);
+     glClear(GL_COLOR_BUFFER_BIT);
+     aspect(&x, &y, A_WINZOOM);
+     panscan_calc_windowed();
+@@ -458,18 +473,26 @@
+ 
+ static void draw_alpha_32(int x0,int y0, int w,int h, unsigned char* src, unsigned char *srca, int stride){
+    vo_draw_alpha_rgb32(w,h,src,srca,stride,ImageData+4*(y0*image_width+x0),4*image_width);
++   if (quadbuffer_stereo)
++      vo_draw_alpha_rgb32(w,h,src,srca,stride,ImageData+4*(y0*image_width+x0+image_width/2),4*image_width);
+ }
+ 
+ static void draw_alpha_24(int x0,int y0, int w,int h, unsigned char* src, unsigned char *srca, int stride){
+    vo_draw_alpha_rgb24(w,h,src,srca,stride,ImageData+3*(y0*image_width+x0),3*image_width);
++   if (quadbuffer_stereo)
++      vo_draw_alpha_rgb24(w,h,src,srca,stride,ImageData+3*(y0*image_width+x0+image_width/2),3*image_width);
+ }
+ 
+ static void draw_alpha_16(int x0,int y0, int w,int h, unsigned char* src, unsigned char *srca, int stride){
+    vo_draw_alpha_rgb16(w,h,src,srca,stride,ImageData+2*(y0*image_width+x0),2*image_width);
++   if (quadbuffer_stereo)
++      vo_draw_alpha_rgb16(w,h,src,srca,stride,ImageData+2*(y0*image_width+x0+image_width/2),2*image_width);
+ }
+ 
+ static void draw_alpha_15(int x0,int y0, int w,int h, unsigned char* src, unsigned char *srca, int stride){
+    vo_draw_alpha_rgb15(w,h,src,srca,stride,ImageData+2*(y0*image_width+x0),2*image_width);
++   if (quadbuffer_stereo)
++      vo_draw_alpha_rgb15(w,h,src,srca,stride,ImageData+2*(y0*image_width+x0+image_width/2),2*image_width);
+ }
+ 
+ static void draw_alpha_null(int x0,int y0, int w,int h, unsigned char* src, unsigned char *srca, int stride){
+@@ -507,6 +530,11 @@
+     /* furthermore it must be RGBA (not color indexed) ... */
+     res = glXGetConfig(dpy, vi_list + i, GLX_RGBA, &val);
+     if (res || val == False) continue;
++    /* assure quadbuffered stereo if requested */
++    if (quadbuffer_stereo) {
++	res = glXGetConfig(dpy, vi_list + i, GLX_STEREO, &val);
++	if (res || val == False) continue;
++    }
+     /* prefer less depth buffer size, */
+     res = glXGetConfig(dpy, vi_list + i, GLX_DEPTH_SIZE, &val);
+     if (res) continue;
+@@ -547,7 +575,10 @@
+   XVisualInfo *vinfo, vinfo_buf;
+     vinfo = choose_glx_visual(mDisplay,mScreen,&vinfo_buf) < 0 ? NULL : &vinfo_buf;
+     if (vinfo == NULL) {
+-      mp_msg(MSGT_VO, MSGL_FATAL, "[gl2] no GLX support present\n");
++      if (quadbuffer_stereo)
++	  mp_msg(MSGT_VO, MSGL_FATAL, "[gl2] no Quadbuffered Stereo GLX support present\n");
++      else
++	  mp_msg(MSGT_VO, MSGL_FATAL, "[gl2] no GLX support present\n");
+       return -1;
+     }
+ 
+@@ -609,9 +640,18 @@
+   resize(d_width, d_height);
+ 
+   glClearColor( 0.0f,0.0f,0.0f,0.0f );
+-  glClear( GL_COLOR_BUFFER_BIT );
+-
+-  drawTextureDisplay ();
++  if ( quadbuffer_stereo ) {
++    glDrawBuffer(GL_BACK);
++    glClear( GL_COLOR_BUFFER_BIT );
++    glDrawBuffer(GL_BACK_LEFT);
++    drawTextureDisplay( 0.0f, 0.5f );
++    glDrawBuffer(GL_BACK_RIGHT);
++    drawTextureDisplay( 0.5f, 1.0f );
++
++  } else { 
++    glClear( GL_COLOR_BUFFER_BIT );
++    drawTextureDisplay ( 0.0f, 1.0f );
++  }
+ 
+   return 0;
+ }
+@@ -630,6 +670,20 @@
+   image_format = format;
+   is_yuv = mp_get_chroma_shift(image_format, &xs, &ys, NULL) > 0;
+   is_yuv |= (xs << 8) | (ys << 16);
++#if 0
++  if (quadbuffer_stereo) {
++    /* v. Winckler's patch had just d_width /= 2, but that doesn't seem right either.
++     * Mplayer experts please help!  Meanwhile, leave this section out.
++     * Then users must still give explicit -x and -y options as in
++     *   mplayer -vo gl2:stereo -x <SCREENWIDTH> -y <SCREENHEIGHT>  movie...
++     * At least *that* works.  But default window doesn't, nor does -fs,
++     * both apparently confused by double-wide aspect ratio of stereo anim files.
++     */
++    width /= 2;
++    d_width /= 2;
++  }
++#endif
++
+ 
+   int_pause = 0;
+ 
+@@ -730,21 +784,31 @@
+ static void draw_osd(void)
+ {
+   if (ImageData)
+-    vo_draw_text(image_width,image_height,draw_alpha_fnc);
++    vo_draw_text( quadbuffer_stereo ? image_width/2 : image_width, image_height,draw_alpha_fnc);
+ }
+ 
+ static void
+ flip_page(void)
+ {
+-  drawTextureDisplay();
++  if ( quadbuffer_stereo ) {
++    glDrawBuffer( GL_BACK_LEFT );
++    drawTextureDisplay( 0.0f, 0.5f );
++    glDrawBuffer( GL_BACK_RIGHT );
++    drawTextureDisplay( 0.5f, 1.0f );
++  } else {
++    drawTextureDisplay( 0.0f, 1.0f );
++  }
+ 
+ //  glFlush();
+   if (use_glFinish)
+-  glFinish();
++    glFinish();
+   glctx.swapGlBuffers(&glctx);
+ 
+   if (aspect_scaling()) // Avoid flickering borders in fullscreen mode
++  {
++    if ( quadbuffer_stereo ) glDrawBuffer(GL_BACK);
+     glClear (GL_COLOR_BUFFER_BIT);
++  }
+ }
+ 
+ static int draw_slice(uint8_t *src[], int stride[], int w,int h,int x,int y)
+@@ -849,6 +913,7 @@
+ static const opt_t subopts[] = {
+   {"yuv",          OPT_ARG_INT,  &use_yuv,      int_non_neg},
+   {"glfinish",     OPT_ARG_BOOL, &use_glFinish, NULL},
++  {"stereo",       OPT_ARG_BOOL, &quadbuffer_stereo,    NULL},
+   {NULL}
+ };
+ 
+@@ -875,6 +940,8 @@
+             "    3: use fragment program with gamma correction.\n"
+             "    4: use fragment program with gamma correction via lookup.\n"
+             "    5: use ATI-specific method (for older cards).\n"
++	    "  stereo\n"
++	    "    use quadbuffered stereo: left-half image to left eye, etc.\n"
+             "\n" );
+     return -1;
+   }
