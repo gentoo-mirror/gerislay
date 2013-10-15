@@ -1,3 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <layman>
+    <overlay contact="gerion.entrup@t-online.de" name="gerislay" src="git://nibbler.neboola.de/ci3ntoverlay.git" status="unofficial" type="git">
+        <link>http://ladish.org/wiki/ladi</link>
+	<description>Overlay of Gerion</description>
+    </overlay>
 </layman>
