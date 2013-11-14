@@ -1,18 +1,18 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/chromaprint/chromaprint-0.7.ebuild,v 1.6 2013/04/05 11:04:22 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/chromaprint/chromaprint-1.0.ebuild,v 1.1 2013/11/03 09:40:39 yngwin Exp $
 
 EAPI=5
 inherit cmake-utils
 
 DESCRIPTION="A client-side library that implements a custom algorithm for extracting fingerprints"
 HOMEPAGE="http://acoustid.org/chromaprint"
-SRC_URI="https://bitbucket.org/acoustid/chromaprint/downloads/${P}.tar.gz"
+SRC_URI="https://bitbucket.org/acoustid/${PN}/downloads/${P}.tar.gz"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="~amd64 ~ppc ~x86"
-IUSE="test tools"
+IUSE="examples test tools"
 
 # note: use ffmpeg instead of fftw because it's recommended and required for tools
 RDEPEND=">=virtual/ffmpeg-0.10
@@ -26,14 +26,16 @@ DEPEND="${RDEPEND}
 
 DOCS="NEWS.txt README.txt"
 
+PATCHES=( "${FILESDIR}/${PN}-0.7-ffmpeg.patch"
+	"${FILESDIR}/${P}-libav9.patch" )
+
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_build tools EXAMPLES)
+		$(cmake-utils_use_build examples)
 		$(cmake-utils_use_build test TESTS)
 		$(cmake-utils_use_build tools)
 		-DWITH_AVFFT=ON
 		)
-
 	cmake-utils_src_configure
 }
 
