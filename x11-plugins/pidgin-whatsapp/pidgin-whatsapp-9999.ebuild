@@ -4,12 +4,12 @@
 
 EAPI=5
 
-EGIT_REPO_URI="https://github.com/davidgfnet/whatsapp-purple.git"
+EGIT_REPO_URI="https://bitbucket.org/davidgfnet/whatsapp-purple.git"
 
 inherit eutils git-2
 
 DESCRIPTION="Adds Whatsapp protocol support for Pidgin"
-HOMEPAGE="https://github.com/davidgfnet/whatsapp-purple"
+HOMEPAGE="http://davidgf.net/page/39/whatsapp-on-your-computer:-pidgin-plugin"
 SRC_URI=""
 
 LICENSE="GPLv2"
