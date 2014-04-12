@@ -6,7 +6,7 @@ EAPI=5
 
 DESCRIPTION="Plugin, that removes ugly double-timestamps when replaying messages from ZNC bouncers"
 HOMEPAGE="https://launchpad.net/pidgin-znc-helper"
-SRC_URI="https://launchpadlibrarian.net/94810955/${P}.tar.gz"
+SRC_URI="https://launchpadlibrarian.net/169849757/${P}.tar.gz"
 
 LICENSE="GPLv2"
 SLOT="0"
