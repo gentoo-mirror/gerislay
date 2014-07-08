@@ -4,7 +4,7 @@
 
 EAPI=5
 
-EGIT_REPO_URI="https://bitbucket.org/davidgfnet/whatsapp-purple.git"
+EGIT_REPO_URI="https://github.com/davidgfnet/whatsapp-purple.git"
 
 inherit eutils git-2
 
