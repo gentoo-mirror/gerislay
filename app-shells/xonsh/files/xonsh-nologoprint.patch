@@ -1,0 +1,10 @@
+--- setup.py.old	2015-03-16 16:47:44.752056831 +0100
++++ setup.py	2015-03-16 16:48:40.752038102 +0100
+@@ -46,7 +46,6 @@
+ def main():
+     if sys.version_info[0] < 3:
+         sys.exit('xonsh currently requires Python 3.4+')
+-    print(logo)
+     with open('README.rst', 'r') as f:
+         readme = f.read()
+     skw = dict(
