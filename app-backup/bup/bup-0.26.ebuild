@@ -41,13 +41,10 @@ src_configure() {
 	:
 }
 
-src_compile() {
-	emake CFLAGS="${CFLAGS}" LDFLAGS="${LDFLAGS}"
-}
-
 src_install() {
-	emake install DESTDIR="${D}"
-	python_fix_shebang "${ED}"usr/bin
+	emake install DESTDIR="$D"
+
+	python_fix_shebang "${ED}"
 
 	doman "${S}"/bup-man/*
 	dodoc README DESIGN CODINGSTYLE
