@@ -1,0 +1,14 @@
+diff -ru ekiga-4.0.1/configure ekiga-4.0.1-r1/configure
+--- ekiga-4.0.1/configure	2013-02-20 22:44:15.000000000 +0100
++++ ekiga-4.0.1-r1/configure	2013-09-17 19:30:45.000000000 +0200
+@@ -19999,8 +19999,8 @@
+     as_fn_error $? "No kab without kde: --enable-kde" "$LINENO" 5
+   fi
+   found_kab=yes
+-  KAB_CFLAGS="-I/usr/include/qt4"
+-  KAB_LIBS="-lQtCore -lkabc"
++  KAB_CFLAGS="-I/usr/include/qt4 -I/usr/include/qt4/QtGui"
++  KAB_LIBS="-L/usr/lib/qt4 -lQtCore -lkabc"
+   CPPFLAGS_save="$CPPFLAGS"
+   LIBS_save="$LIBS"
+   CPPFLAGS="$CPPFLAGS $KAB_CFLAGS
