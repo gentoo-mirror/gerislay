@@ -51,7 +51,7 @@ KEYWORDS="~alpha amd64 ~arm ~hppa ~ia64 ppc ~ppc64 x86 ~amd64-linux ~x86-linux"
 
 SLOT="0"
 LICENSE="MPL-2.0 GPL-2 LGPL-2.1"
-IUSE="bindist egl hardened kde +minimal neon pgo selinux +gmp-autoupdate test"
+IUSE="bindist egl hardened jack kde +minimal neon pgo selinux +gmp-autoupdate test"
 RESTRICT="!bindist? ( bindist )"
 
 # More URIs appended below...
@@ -71,6 +71,8 @@ RDEPEND="
 	!!www-client/firefox"
 
 DEPEND="${RDEPEND}
+	jack? (
+		media-sound/jack-audio-connection-kit )
 	pgo? (
 		>=sys-devel/gcc-4.5 )
 	amd64? ( ${ASM_DEPEND}
@@ -129,6 +131,12 @@ pkg_setup() {
 		einfo
 		ewarn "You will do a double build for profile guided optimization."
 		ewarn "This will result in your build taking at least twice as long as before."
+	fi
+
+	if use jack; then
+		einfo
+		ewarn "Jack Support for Firefox is experimental and know to be cause xruns."
+		ewarn "See https://bugzilla.mozilla.org/show_bug.cgi?id=783733 for more info."
 	fi
 }
 
@@ -193,6 +201,15 @@ src_prepare() {
 	EPATCH_FORCE="yes" \
 	epatch "${WORKDIR}/firefox"
 	epatch "${FILESDIR}"/${PN}-38-hppa-js-syntax-error.patch #556196
+
+	if use jack; then
+		# Apply patch from https://bugzilla.mozilla.org/show_bug.cgi?id=783733
+		epatch "${FILESDIR}"/${PN}-enable-jack.patch
+		# Update cubeb to git rev 6c4f12e96d and copy with update.sh
+		epatch "${FILESDIR}"/${PN}-update-cubeb.patch
+		# Apply not upstream fixes for cubeb https://github.com/kinetiknz/cubeb/issues/50
+		epatch "${FILESDIR}"/${PN}-cubeb-jack-fixes.patch
+	fi
 
 	# Allow user to apply any additional patches without modifing ebuild
 	epatch_user
@@ -262,6 +279,10 @@ src_configure() {
 		mozconfig_annotate '' --with-fpu=neon
 		mozconfig_annotate '' --with-thumb=yes
 		mozconfig_annotate '' --with-thumb-interwork=no
+	fi
+
+	if use jack ; then
+		mozconfig_annotate '' --enable-jack
 	fi
 
 	if [[ ${CHOST} == armv* ]] ; then

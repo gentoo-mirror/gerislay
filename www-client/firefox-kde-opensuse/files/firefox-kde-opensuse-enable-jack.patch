@@ -1,0 +1,57 @@
+diff -r 09f4968d5f42 configure.in
+--- a/configure.in	Mon Feb 16 15:59:56 2015 +0100
++++ b/configure.in	Tue Feb 17 22:36:02 2015 +0100
+@@ -5656,6 +5656,23 @@
+ 
+ AC_SUBST(MOZ_PULSEAUDIO)
+ 
++dnl ==================================
++dnl = Check JACK availability on Linux
++dnl ==================================
++
++MOZ_ARG_ENABLE_BOOL(jack,
++[  --enable-jack          Enable JACK support (experimental)],
++   MOZ_JACK=1,
++   MOZ_JACK=)
++
++if test -n "$MOZ_JACK"; then
++    PKG_CHECK_MODULES(MOZ_JACK, jack, ,
++         [echo "$MOZ_JACK_PKG_ERRORS"
++          AC_MSG_ERROR([JACK audio backend requires jack libraries])])
++fi
++
++AC_SUBST(MOZ_JACK)
++
+ dnl ========================================================
+ dnl = Enable GStreamer
+ dnl ========================================================
+diff -r 09f4968d5f42 media/libcubeb/src/moz.build
+--- a/media/libcubeb/src/moz.build	Mon Feb 16 15:59:56 2015 +0100
++++ b/media/libcubeb/src/moz.build	Tue Feb 17 22:36:02 2015 +0100
+@@ -25,6 +25,15 @@
+     if CONFIG['MOZ_WIDGET_TOOLKIT'] == 'gonk':
+         DEFINES['DISABLE_LIBPULSE_DLOPEN'] = True
+ 
++if CONFIG['MOZ_JACK']:
++    SOURCES += [
++        'cubeb_jack.cpp',
++    ]
++    USE_LIBS += [
++        'speex',
++    ]
++    DEFINES['USE_JACK'] = True
++
+ if CONFIG['OS_ARCH'] == 'OpenBSD':
+     SOURCES += [
+         'cubeb_sndio.c',
+diff -r 09f4968d5f42 media/libcubeb/update.sh
+--- a/media/libcubeb/update.sh	Mon Feb 16 15:59:56 2015 +0100
++++ b/media/libcubeb/update.sh	Tue Feb 17 22:36:02 2015 +0100
+@@ -8,6 +8,7 @@
+ cp $1/src/cubeb_winmm.c src
+ cp $1/src/cubeb_audiounit.c src
+ cp $1/src/cubeb_pulse.c src
++cp $1/src/cubeb_jack.cpp src
+ cp $1/src/cubeb_sndio.c src
+ cp $1/src/cubeb_opensl.c src
+ cp $1/src/cubeb_audiotrack.c src

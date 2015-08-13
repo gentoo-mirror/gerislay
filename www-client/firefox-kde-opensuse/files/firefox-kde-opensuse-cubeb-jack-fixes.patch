@@ -1,0 +1,33 @@
+diff --git a/media/libcubeb/src/cubeb.c b/media/libcubeb/src/cubeb.c
+index 8f3b040..7588a69 100644
+--- a/media/libcubeb/src/cubeb.c
++++ b/media/libcubeb/src/cubeb.c
+@@ -23,12 +23,12 @@ struct cubeb_stream {
+   struct cubeb * context;
+ };
+ 
+-#if defined(USE_PULSE)
+-int pulse_init(cubeb ** context, char const * context_name);
+-#endif
+ #if defined(USE_JACK)
+ int jack_init (cubeb ** context, char const * context_name);
+ #endif
++#if defined(USE_PULSE)
++int pulse_init(cubeb ** context, char const * context_name);
++#endif
+ #if defined(USE_ALSA)
+ int alsa_init(cubeb ** context, char const * context_name);
+ #endif
+diff --git a/media/libcubeb/src/cubeb_jack.cpp b/media/libcubeb/src/cubeb_jack.cpp
+index b9c03b8..16c9d8a 100644
+--- a/media/libcubeb/src/cubeb_jack.cpp
++++ b/media/libcubeb/src/cubeb_jack.cpp
+@@ -403,7 +403,7 @@ stream_refill_thread (void *arg)
+         stream->state_callback(stream, stream->user_ptr, CUBEB_STATE_DRAINED);
+       }
+     }
+-    usleep (10000);
++    usleep (1000);
+   }
+ 
+   return NULL;
