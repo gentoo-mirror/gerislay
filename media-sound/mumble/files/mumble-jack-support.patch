@@ -1,5 +1,5 @@
-diff -U 3 -H -d -r -N -- mumble-1.2.2/src/mumble/JackAudio.cpp mumble-1.2.2/src/mumble/JackAudio.cpp
---- mumble-1.2.2/src/mumble/JackAudio.cpp	1970-01-01 01:00:00.000000000 +0100
+diff -U 3 -H -d -r -N -- mumble-1.2.2.orig/src/mumble/JackAudio.cpp mumble-1.2.2/src/mumble/JackAudio.cpp
+--- mumble-1.2.2.orig/src/mumble/JackAudio.cpp	1970-01-01 01:00:00.000000000 +0100
 +++ mumble-1.2.2/src/mumble/JackAudio.cpp	2011-01-26 06:02:00.000000000 +0000
 @@ -0,0 +1,314 @@
 +/* Copyright (C) 2011, Benjamin Jemlich <pcgod@users.sourceforge.net>
@@ -316,10 +316,10 @@ diff -U 3 -H -d -r -N -- mumble-1.2.2/src/mumble/JackAudio.cpp mumble-1.2.2/src/
 +                qwcWait.wait(&qmMutex);
 +        qmMutex.unlock();
 +}
-diff -U 3 -H -d -r -N -- mumble-1.2.2/src/mumble/JackAudio.h mumble-1.2.2/src/mumble/JackAudio.h
---- mumble-1.2.2/src/mumble/JackAudio.h	1970-01-01 01:00:00.000000000 +0100
+diff -U 3 -H -d -r -N -- mumble-1.2.2.orig/src/mumble/JackAudio.h mumble-1.2.2/src/mumble/JackAudio.h
+--- mumble-1.2.2.orig/src/mumble/JackAudio.h	1970-01-01 01:00:00.000000000 +0100
 +++ mumble-1.2.2/src/mumble/JackAudio.h	2011-01-26 06:03:58.000000000 +0000
-@@ -0,0 +1,97 @@
+@@ -0,0 +1,98 @@
 +/* Copyright (C) 2011, Benjamin Jemlich <pcgod@users.sourceforge.net>
 +   Copyright (C) 2011, Filipe Coelho <falktx@gmail.com>
 +
@@ -357,6 +357,7 @@ diff -U 3 -H -d -r -N -- mumble-1.2.2/src/mumble/JackAudio.h mumble-1.2.2/src/mu
 +#include "AudioInput.h"
 +#include "AudioOutput.h"
 +#include <jack/jack.h>
++#include <QWaitCondition>
 +
 +class JackAudioOutput;
 +class JackAudioInput;
@@ -417,8 +418,8 @@ diff -U 3 -H -d -r -N -- mumble-1.2.2/src/mumble/JackAudio.h mumble-1.2.2/src/mu
 +};
 +
 +#endif
-diff -U 3 -H -d -r -N -- mumble-1.2.2/src/mumble/mumble.pro mumble-1.2.2/src/mumble/mumble.pro
---- mumble-1.2.2/src/mumble/mumble.pro	2010-02-09 16:34:51.000000000 +0000
+diff -U 3 -H -d -r -N -- mumble-1.2.2.orig/src/mumble/mumble.pro mumble-1.2.2/src/mumble/mumble.pro
+--- mumble-1.2.2.orig/src/mumble/mumble.pro	2010-02-09 16:34:51.000000000 +0000
 +++ mumble-1.2.2/src/mumble/mumble.pro	2011-01-26 01:45:55.000000000 +0000
 @@ -93,11 +93,17 @@
  unix {

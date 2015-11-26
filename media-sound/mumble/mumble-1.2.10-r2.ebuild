@@ -1,26 +1,34 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/mumble/mumble-1.2.3-r1.ebuild,v 1.2 2011/06/14 20:10:41 maekke Exp $
+# $Id$
 
-EAPI="4"
+EAPI="5"
+
+QT_MINIMAL="4.6"
 
 inherit eutils multilib qt4-r2
 
+MY_P="${PN}-${PV/_/~}"
+
 DESCRIPTION="Mumble is an open source, low-latency, high quality voice chat software"
 HOMEPAGE="http://mumble.sourceforge.net/"
-SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
+SRC_URI="http://mumble.info/snapshot/${MY_P}.tar.gz"
 
-LICENSE="BSD"
+LICENSE="BSD MIT"
 SLOT="0"
-KEYWORDS="amd64 x86"
-IUSE="+alsa +dbus debug g15 jack oss pch portaudio pulseaudio speech zeroconf"
+KEYWORDS="~amd64 ~x86"
+IUSE="+alsa +dbus debug g15 jack libressl oss pch portaudio pulseaudio speech zeroconf"
 
 RDEPEND=">=dev-libs/boost-1.41.0
-	>=dev-libs/openssl-1.0.0b
+	!libressl? ( >=dev-libs/openssl-1.0.0b:0 )
+	libressl? ( dev-libs/libressl )
 	>=dev-libs/protobuf-2.2.0
 	>=media-libs/libsndfile-1.0.20[-minimal]
+	>=media-libs/opus-1.0.1
 	>=media-libs/speex-1.2_rc1
 	sys-apps/lsb-release
+	x11-libs/libX11
+	x11-libs/libXi
 	dev-qt/qtcore:4[ssl]
 	dev-qt/qtgui:4
 	dev-qt/qtopengl:4
@@ -35,19 +43,19 @@ RDEPEND=">=dev-libs/boost-1.41.0
 	portaudio? ( media-libs/portaudio )
 	pulseaudio? ( media-sound/pulseaudio )
 	speech? ( app-accessibility/speech-dispatcher )
-	zeroconf? ( || ( net-dns/avahi[mdnsresponder-compat] net-misc/mDNSResponder ) )"
+	zeroconf? ( net-dns/avahi[mdnsresponder-compat] )"
 DEPEND="${RDEPEND}
-	dev-util/pkgconfig"
+	virtual/pkgconfig"
 
-PATCHDIR="${WORKDIR}/${MY_P}"
+PATCHES=(
+	"${FILESDIR}"/${PN}-1.2.4-speech-dispatcher.patch
+)
 
-src_unpack() {
-	unpack ${A}
-	epatch "${FILESDIR}"/${PN}-1.2.3-fix-cert-validation.patch
-	#don't work
-	#epatch "${FILESDIR}"/${PN}-1.2.3-set-file-permissions.patch
-	use jack && cd ${PATCHDIR}
-	use jack && epatch "${FILESDIR}"/mumble-jack-support-r2.patch
+S="${WORKDIR}/${MY_P}"
+
+src_prepare() {
+	epatch ${PATCHES[@]}
+	use jack && epatch "${FILESDIR}"/${PN}-jack-support.patch
 }
 
 src_configure() {
@@ -72,17 +80,21 @@ src_configure() {
 	eqmake4 "${S}/main.pro" -recursive \
 		CONFIG+="${conf_add} \
 			bundled-celt \
-			no-11x \
+			no-bundled-opus \
 			no-bundled-speex \
 			no-embed-qt-translations \
 			no-server \
 			no-update" \
-		DEFINES+="PLUGIN_PATH=/usr/$(get_libdir)/mumble" \
-		|| die "eqmake4 failed."
+		DEFINES+="PLUGIN_PATH=/usr/$(get_libdir)/mumble"
+}
+
+src_compile() {
+	# parallel make workaround, bug #445960
+	emake -j1
 }
 
 src_install() {
-	newdoc README.Linux README 
+	newdoc README.Linux README
 	dodoc CHANGES
 
 	local dir
