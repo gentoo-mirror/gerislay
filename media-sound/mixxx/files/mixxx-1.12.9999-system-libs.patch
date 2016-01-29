@@ -1,42 +1,8 @@
-diff --git a/build/depends.py b/build/depends.py
-index ad71733..a33d68e 100644
---- a/build/depends.py
-+++ b/build/depends.py
-@@ -347,25 +347,11 @@
- 
- class FidLib(Dependence):
- 
--    def sources(self, build):
--        symbol = None
--        if build.platform_is_windows:
--            if build.toolchain_is_msvs:
--                symbol = 'T_MSVC'
--            elif build.crosscompile:
--                # Not sure why, but fidlib won't build with mingw32msvc and
--                # T_MINGW
--                symbol = 'T_LINUX'
--            elif build.toolchain_is_gnu:
--                symbol = 'T_MINGW'
--        else:
--            symbol = 'T_LINUX'
--
--        return [build.env.StaticObject('#lib/fidlib-0.9.10/fidlib.c',
--                                       CPPDEFINES=symbol)]
--
-     def configure(self, build, conf):
--        build.env.Append(CPPPATH='#lib/fidlib-0.9.10/')
-+        if not conf.CheckLib('fidlib'):
-+            raise Exception('Did not find fidlib library, exiting!')
-+        build.env.Append(CPPPATH=[SCons.ARGUMENTS.get('prefix') + '/include/fidlib']) 
-+
- 
- 
- class ReplayGain(Dependence):
-@@ -378,42 +364,19 @@
- 
- 
- class SoundTouch(Dependence):
--    SOUNDTOUCH_PATH = 'soundtouch-1.8.0'
+diff -dNur a/build/depends.py b/build/depends.py
+--- a/build/depends.py	2015-12-01 17:29:47.731520477 +0000
++++ b/build/depends.py	2015-12-01 17:34:59.412854685 +0000
+@@ -403,39 +403,15 @@
+     SOUNDTOUCH_PATH = 'soundtouch-1.8.0'
  
      def sources(self, build):
 -        return ['engine/enginebufferscalest.cpp',
@@ -64,31 +30,30 @@ index ad71733..a33d68e 100644
          if env is None:
              env = build.env
 -        env.Append(CPPPATH=['#lib/%s' % self.SOUNDTOUCH_PATH])
- 
+-
 -        # Prevents circular import.
 -        from features import Optimize
+-
+-        # If we do not want optimizations then disable them.
+-        optimize = (build.flags['optimize'] if 'optimize' in build.flags
+-                    else Optimize.get_optimization_level(build))
+-        if optimize == Optimize.LEVEL_OFF:
+-            env.Append(CPPDEFINES='SOUNDTOUCH_DISABLE_X86_OPTIMIZATIONS')
 +        if not conf.CheckLib(['SoundTouch','libSoundTouch']):
 +            raise Exception('Did not find SoundTouch library, exiting!')
 +        build.env.Append(CPPPATH=[SCons.ARGUMENTS.get('prefix') + '/include/soundtouch'])
 +        build.env.Append(LIBS='SoundTouch')
  
--        # If we do not want optimizations then disable them.
--        optimize = (build.flags['optimize'] if 'optimize' in build.flags
--                    else Optimize.get_optimization_level())
--        if optimize == Optimize.LEVEL_OFF:
--            env.Append(CPPDEFINES='SOUNDTOUCH_DISABLE_X86_OPTIMIZATIONS')
- 
  
  class RubberBand(Dependence):
-diff --git a/build/features.py b/build/features.py
-index b61de86..639e143 100644
---- a/build/features.py
-+++ b/build/features.py
+diff -dNur a/build/features.py b/build/features.py
+--- a/build/features.py	2015-12-01 17:29:47.731520477 +0000
++++ b/build/features.py	2015-12-01 17:40:15.398209140 +0000
 @@ -45,7 +45,6 @@
  
  
  class HID(Feature):
--    HIDAPI_INTERNAL_PATH = '#lib/hidapi-0.8.0-pre'
+-    HIDAPI_INTERNAL_PATH = '#lib/hidapi-0.8.0-rc1'
  
      def description(self):
          return "HID controller support"
@@ -103,7 +68,7 @@ index b61de86..639e143 100644
  
          if build.platform_is_linux:
              build.env.ParseConfig(
-@@ -90,22 +85,16 @@
+@@ -90,25 +85,17 @@
  
          build.env.Append(CPPDEFINES='__HID__')
  
@@ -112,8 +77,10 @@ index b61de86..639e143 100644
 +        build.env.Append(CPPPATH=[SCons.ARGUMENTS.get('prefix') + '/include/hidapi'])
 +        build.env.Append(LIBS='hidapi-libusb')
 +
++
      def sources(self, build):
-         sources = ['controllers/hid/hidcontroller.cpp',
+-        sources = ['controllers/hid/hidcontroller.cpp',
++        return ['controllers/hid/hidcontroller.cpp',
                     'controllers/hid/hidenumerator.cpp',
                     'controllers/hid/hidcontrollerpresetfilehandler.cpp']
  
@@ -123,17 +90,20 @@ index b61de86..639e143 100644
 -            sources.append(
 -                os.path.join(self.HIDAPI_INTERNAL_PATH, "windows/hid.c"))
 -        elif build.platform_is_linux:
+-            # hidapi compiles the libusb implementation by default on Linux
 -            sources.append(
--                os.path.join(self.HIDAPI_INTERNAL_PATH, 'linux/hid-libusb.c'))
+-                os.path.join(self.HIDAPI_INTERNAL_PATH, 'libusb/hid.c'))
 -        elif build.platform_is_osx:
 -            sources.append(
 -                os.path.join(self.HIDAPI_INTERNAL_PATH, 'mac/hid.c'))
-         return sources
+-        return sources
+-
  
- 
-@@ -717,25 +706,6 @@
-         test_env.Append(CCFLAGS='-pthread')
-         test_env.Append(LINKFLAGS='-pthread')
+ class Bulk(Feature):
+     def description(self):
+@@ -745,25 +732,16 @@
+             test_env.Append(CCFLAGS='-pthread')
+             test_env.Append(LINKFLAGS='-pthread')
  
 -        test_env.Append(CPPPATH="#lib/gtest-1.7.0/include")
 -        gtest_dir = test_env.Dir("#lib/gtest-1.7.0")
@@ -151,10 +121,17 @@ index b61de86..639e143 100644
 -        gmock_dir = test_env.Dir("#lib/gmock-1.7.0")
 -        # gmock_dir.addRepository(build.env.Dir('#lib/gmock-1.5.0'))
 -        test_env['LIB_OUTPUT'] = '#/lib/gmock-1.7.0/lib'
--
+ 
 -        env.SConscript(env.File('SConscript', gmock_dir))
--
++        if not conf.CheckLib('gtest'):
++            raise Exception('Did not find gtest library, exiting!')
++        test_env.Append(CPPPATH=[SCons.ARGUMENTS.get('prefix') + '/include/gtest'])
++        test_env.Append(LIBS='gtest')
+ 
++        if not conf.CheckLib('gmock'):
++            raise Exception('Did not find gmock library, exiting!')
++        test_env.Append(CPPPATH=[SCons.ARGUMENTS.get('prefix') + '/include/gmock'])
++        test_env.Append(LIBS='gmock')
          return []
  
  
-

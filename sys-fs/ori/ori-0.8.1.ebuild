@@ -8,7 +8,7 @@ inherit eutils scons-utils toolchain-funcs linux-info
 
 DESCRIPTION="distributed file system built for offline operation"
 HOMEPAGE="http://ori.scs.stanford.edu/"
-SRC_URI="https://bitbucket.org/orifs/ori/downloads/ori-0.8.0.tar.xz"
+SRC_URI="https://bitbucket.org/orifs/ori/downloads/${P}.tar.xz"
 
 LICENSE="as-is"
 SLOT="0"
@@ -44,9 +44,7 @@ pkg_setup() {
 }
 
 src_prepare() {
-	epatch \
-		"${FILESDIR}/${P}"-scons-destdir.patch \
-		"${FILESDIR}/${P}"-scons-variables.patch
+	epatch "${FILESDIR}/${P}"-scons-multiprocessing.patch
 }
 
 src_configure() {
