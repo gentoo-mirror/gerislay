@@ -18,7 +18,7 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND="
-	media-libs/platform
+	media-libs/p8-platform
 	media-tv/kodi
 "
 RDEPEND="${DEPEND}"
