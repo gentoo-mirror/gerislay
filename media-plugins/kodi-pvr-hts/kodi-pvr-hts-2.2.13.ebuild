@@ -4,21 +4,24 @@
 
 EAPI=5
 
-inherit git-r3 cmake-utils
-
-EGIT_REPO_URI="https://github.com/kodi-pvr/pvr.hts.git"
+inherit cmake-utils
 
 DESCRIPTION="Tvheadend HTSP PVR client addon for Kodi"
 HOMEPAGE="https://github.com/kodi-pvr/pvr.hts"
-SRC_URI=""
+SRC_URI="https://github.com/kodi-pvr/pvr.hts/archive/2.2.13.tar.gz"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64"
 IUSE=""
 
-DEPEND="media-libs/kodi-platform"
+DEPEND="media-libs/kodi-platform
+		=media-tv/kodi-16*"
 RDEPEND="${DEPEND}"
+
+S="${WORKDIR}/pvr.hts-${PV}"
+
+PATCHES=( "${FILESDIR}/${P}-platform-renaming.patch" )
 
 src_configure() {
         local mycmakeargs=(
