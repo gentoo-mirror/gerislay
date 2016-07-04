@@ -49,7 +49,7 @@ diff --git a/media/libcubeb/update.sh b/media/libcubeb/update.sh
 index 07b0a98..ce2c7b2 100755
 --- a/media/libcubeb/update.sh
 +++ b/media/libcubeb/update.sh
-@@ -8,12 +8,14 @@ cp $1/src/cubeb_alsa.c src
+@@ -8,15 +8,18 @@ cp $1/src/cubeb_alsa.c src
  cp $1/src/cubeb_winmm.c src
  cp $1/src/cubeb_audiounit.c src
  cp $1/src/cubeb_pulse.c src
@@ -64,6 +64,10 @@ index 07b0a98..ce2c7b2 100755
  cp $1/src/cubeb-speex-resampler.h src
  cp $1/src/cubeb_panner.h src
  cp $1/src/cubeb_panner.cpp src
++cp $1/src/cubeb_utils.h src
+ cp $1/src/android/audiotrack_definitions.h src/android
+ cp $1/src/android/sles_definitions.h src/android
+ cp $1/LICENSE .
 diff --git a/old-configure.in b/old-configure.in
 index 7ed049e..ef9c480 100644
 --- a/old-configure.in
