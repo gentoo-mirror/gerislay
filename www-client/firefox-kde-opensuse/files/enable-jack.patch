@@ -1,0 +1,87 @@
+diff --git a/config/system-headers b/config/system-headers
+index a87faf82..eab461b 100644
+--- a/config/system-headers
++++ b/config/system-headers
+@@ -569,6 +569,10 @@ iostream
+ iostream.h
+ istream
+ iterator
++#if MOZ_JACK==1
++jack/jack.h
++jack/statistics.h
++#endif
+ JavaControl.h
+ JavaEmbedding/JavaControl.h
+ JavaVM/jni.h
+diff --git a/media/libcubeb/src/moz.build b/media/libcubeb/src/moz.build
+index 3b96656..fcaa746 100644
+--- a/media/libcubeb/src/moz.build
++++ b/media/libcubeb/src/moz.build
+@@ -17,6 +17,11 @@ if CONFIG['MOZ_ALSA']:
+     ]
+     DEFINES['USE_ALSA'] = True
+ 
++if CONFIG['MOZ_PULSEAUDIO'] or CONFIG['MOZ_JACK']:
++    SOURCES += [
++        'cubeb_resampler.cpp',
++    ]
++
+ if CONFIG['MOZ_PULSEAUDIO']:
+     SOURCES += [
+         'cubeb_pulse.c',
+@@ -25,6 +30,15 @@ if CONFIG['MOZ_PULSEAUDIO']:
+     if CONFIG['MOZ_WIDGET_TOOLKIT'] == 'gonk':
+         DEFINES['DISABLE_LIBPULSE_DLOPEN'] = True
+ 
++if CONFIG['MOZ_JACK']:
++    SOURCES += [
++        'cubeb_jack.cpp',
++    ]
++    USE_LIBS += [
++        'speex',
++    ]
++    DEFINES['USE_JACK'] = True
++
+ if CONFIG['OS_ARCH'] == 'OpenBSD':
+     SOURCES += [
+         'cubeb_sndio.c',
+diff --git a/media/libcubeb/update.sh b/media/libcubeb/update.sh
+index f51f40c..b88ace0 100755
+--- a/media/libcubeb/update.sh
++++ b/media/libcubeb/update.sh
+@@ -8,6 +8,7 @@ cp $1/src/cubeb_alsa.c src
+ cp $1/src/cubeb_winmm.c src
+ cp $1/src/cubeb_audiounit.c src
+ cp $1/src/cubeb_pulse.c src
++cp $1/src/cubeb_jack.cpp src
+ cp $1/src/cubeb_sndio.c src
+ cp $1/src/cubeb_opensl.c src
+ cp $1/src/cubeb_audiotrack.c src
+diff --git a/old-configure.in b/old-configure.in
+index 7ed049e..ef9c480 100644
+--- a/old-configure.in
++++ b/old-configure.in
+@@ -4179,6 +4179,23 @@ AC_DEFINE(MOZ_WEBM_ENCODER)
+ AC_SUBST(MOZ_WEBM_ENCODER)
+ 
+ dnl ==================================
++dnl = Check JACK availability on Linux
++dnl ==================================
++
++MOZ_ARG_ENABLE_BOOL(jack,
++[  --enable-jack          Enable JACK support (experimental)],
++   MOZ_JACK=1,
++   MOZ_JACK=)
++
++if test -n "$MOZ_JACK"; then
++    PKG_CHECK_MODULES(MOZ_JACK, jack, ,
++         [echo "$MOZ_JACK_PKG_ERRORS"
++          AC_MSG_ERROR([JACK audio backend requires jack libraries])])
++fi
++
++AC_SUBST(MOZ_JACK)
++
++dnl ==================================
+ dnl = Check alsa availability on Linux
+ dnl ==================================
+ 
