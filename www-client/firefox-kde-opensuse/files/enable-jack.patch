@@ -46,10 +46,10 @@ index 3b96656..fcaa746 100644
      SOURCES += [
          'cubeb_sndio.c',
 diff --git a/media/libcubeb/update.sh b/media/libcubeb/update.sh
-index f51f40c..b88ace0 100755
+index 07b0a98..ce2c7b2 100755
 --- a/media/libcubeb/update.sh
 +++ b/media/libcubeb/update.sh
-@@ -8,6 +8,7 @@ cp $1/src/cubeb_alsa.c src
+@@ -8,12 +8,14 @@ cp $1/src/cubeb_alsa.c src
  cp $1/src/cubeb_winmm.c src
  cp $1/src/cubeb_audiounit.c src
  cp $1/src/cubeb_pulse.c src
@@ -57,6 +57,13 @@ index f51f40c..b88ace0 100755
  cp $1/src/cubeb_sndio.c src
  cp $1/src/cubeb_opensl.c src
  cp $1/src/cubeb_audiotrack.c src
+ cp $1/src/cubeb_wasapi.cpp src
+ cp $1/src/cubeb_resampler.h src
+ cp $1/src/cubeb_resampler.cpp src
++cp $1/src/cubeb_resampler_internal.h src
+ cp $1/src/cubeb-speex-resampler.h src
+ cp $1/src/cubeb_panner.h src
+ cp $1/src/cubeb_panner.cpp src
 diff --git a/old-configure.in b/old-configure.in
 index 7ed049e..ef9c480 100644
 --- a/old-configure.in
