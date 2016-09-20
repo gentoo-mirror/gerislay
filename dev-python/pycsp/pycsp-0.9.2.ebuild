@@ -17,5 +17,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE=""
 
+RDEPEND="virtual/python-greenlet[${PYTHON_USEDEP}]"
+
 DEPEND="${RDEPEND}
     dev-python/setuptools[${PYTHON_USEDEP}]"
