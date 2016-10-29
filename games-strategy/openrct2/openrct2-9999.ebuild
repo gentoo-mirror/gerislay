@@ -16,13 +16,13 @@ IUSE="curl openssl"
 
 EGIT_REPO_URI="https://github.com/OpenRCT2/OpenRCT2.git"
 
-DEPEND="media-libs/libsdl2[abi_x86_32]
-	media-libs/sdl2-ttf[abi_x86_32]
-	media-libs/speex[abi_x86_32]
-	media-libs/fontconfig[abi_x86_32]
-	dev-libs/jansson[abi_x86_32]
-	curl? ( net-misc/curl[abi_x86_32] )
-	openssl? ( dev-libs/openssl[abi_x86_32] )"
+DEPEND="media-libs/libsdl2
+	media-libs/sdl2-ttf
+	media-libs/speex
+	media-libs/fontconfig
+	dev-libs/jansson
+	curl? ( net-misc/curl )
+	openssl? ( dev-libs/openssl )"
 RDEPEND="${DEPENDS}"
 
 pkg_postinst() {
