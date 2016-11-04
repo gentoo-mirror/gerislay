@@ -1,4 +1,5 @@
-kde-apps/kontact
-kde-apps/kmail
 kde-apps/kaddressbook
+kde-apps/kleopatra
+kde-apps/kmail
+kde-apps/kontact
 kde-apps/korganizer
