@@ -1,0 +1,11 @@
+--- /usr/portage/kde-misc/tellico/tellico-3.0.1.ebuild	2017-02-23 11:42:07.000000000 +0100
++++ tellico-3.0.1-r1.ebuild	2017-02-24 03:33:43.206529548 +0100
+@@ -47,7 +47,7 @@
+ 	$(add_qt_dep qtnetwork)
+ 	$(add_qt_dep qtwidgets)
+ 	$(add_qt_dep qtxml)
+-	dev-libs/btparse
++	|| ( dev-libs/btparse dev-perl/Text-BibTeX )
+ 	dev-libs/libxml2
+ 	dev-libs/libxslt
+ 	cddb? ( $(add_kdeapps_dep libkcddb) )
