@@ -3,10 +3,10 @@
 	<repo priority="50" quality="experimental" status="unofficial">
 		<name>gerislay</name>
 		<description>Overlay of Gerion</description>
-		<homepage>http://nibbler.neboola.de/gitweb/?p=ci3ntoverlay.git;a=summary</homepage>
+		<homepage>https://git.finf.uni-hannover.de/Chrysops/gerislay</homepage>
 		<owner>
 			<email>gerion.entrup@flump.de</email>
 		</owner>
-		<source type="git">git://nibbler.neboola.de/ci3ntoverlay.git</source>
+		<source type="git">https://git.finf.uni-hannover.de/Chrysops/gerislay.git</source>
 	</repo>
 </repositories>
