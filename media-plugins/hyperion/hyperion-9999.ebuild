@@ -3,7 +3,7 @@
 
 EAPI=6
 
-inherit git-r3 cmake-utils systemd
+inherit git-r3 cmake-utils systemd user
 
 DESCRIPTION="An opensource 'AmbiLight' implementation supported by many devices"
 HOMEPAGE="https://hyperion-project.org/"
