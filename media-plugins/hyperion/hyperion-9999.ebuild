@@ -61,7 +61,10 @@ src_install() {
 
 	insinto /etc/hyperion
 	doins "${S}/config/hyperion.config.json.example"
-	ewarn "The config file is also creatable with the GUI program HyperCon."
+	ewarn "In /etc/hyperion/ an example config file is provided. The config"
+	ewarn "file is also creatable with the GUI program HyperCon."
+	ewarn "To allow access to certain input devices you have add the hyperion"
+	ewarn "user to the uucp group: usermod -G uucp hyperion"
 
 	newinitd "${FILESDIR}"/hyperion.initd hyperion
 
