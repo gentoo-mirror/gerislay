@@ -14,7 +14,7 @@ EGIT_SUBMODULES=()
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS=""
-IUSE="dispmanx framebuffer spi +qt5 vfl"
+IUSE="dispmanx framebuffer spi +qt5 vfl X"
 
 DEPEND="x11-libs/libXrender
 	dev-util/cmake
@@ -34,6 +34,7 @@ src_configure() {
 		-DENABLE_SPIDEV="$(usex spi)"
 		-DENABLE_QT5="$(usex qt5)"
 		-DENABLE_VFL2="$(usex vfl)"
+		-DENABLE_X11="$(usex X)"
 		-DCMAKE_BUILD_TYPE=Release
 		-DUSE_SYSTEM_PROTO_LIBS=on
 		-DUSE_SHARED_AVAHI_LIBS=on
