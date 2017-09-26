@@ -1,0 +1,18 @@
+#!/sbin/openrc-run
+# Released under the 2-clause BSD license.
+
+description="Start and stop hyperiond"
+
+start()
+{
+        ebegin "Starting hyperiond"
+        start-stop-daemon --start -u hyperion --background --pidfile /var/run/hyperiond.pid --make-pidfile --exec /usr/bin/hyperiond /etc/hyperion/hyperion.config.json
+        eend $?
+}
+
+stop()
+{
+        ebegin "Stopping hyperiond"
+        start-stop-daemon --stop --pidfile /var/run/hyperiond.pid
+        eend $?
+}
