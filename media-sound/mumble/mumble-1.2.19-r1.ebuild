@@ -1,31 +1,34 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
-EAPI="5"
+EAPI=6
 
-QT_MINIMAL="4.6"
-
-inherit eutils multilib qt4-r2
+inherit eutils multilib qmake-utils
 
 MY_P="${PN}-${PV/_/~}"
 
 DESCRIPTION="Mumble is an open source, low-latency, high quality voice chat software"
-HOMEPAGE="http://mumble.sourceforge.net/"
-SRC_URI="http://mumble.info/snapshot/${MY_P}.tar.gz"
+HOMEPAGE="https://wiki.mumble.info"
+SRC_URI="https://mumble.info/snapshot/${MY_P}.tar.gz"
 
 LICENSE="BSD MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE="+alsa +dbus debug g15 jack libressl oss pch portaudio pulseaudio speech zeroconf"
 
 RDEPEND=">=dev-libs/boost-1.41.0
 	!libressl? ( >=dev-libs/openssl-1.0.0b:0 )
 	libressl? ( dev-libs/libressl )
-	>=dev-libs/protobuf-2.2.0
+	>=dev-libs/protobuf-2.2.0:=
 	>=media-libs/libsndfile-1.0.20[-minimal]
 	>=media-libs/opus-1.0.1
-	>=media-libs/speex-1.2_rc1
+	|| (
+		(
+			>=media-libs/speex-1.2.0
+			media-libs/speexdsp
+		)
+		<media-libs/speex-1.2.0
+	)
 	sys-apps/lsb-release
 	x11-libs/libX11
 	x11-libs/libXi
@@ -39,7 +42,7 @@ RDEPEND=">=dev-libs/boost-1.41.0
 	alsa? ( media-libs/alsa-lib )
 	dbus? ( dev-qt/qtdbus:4 )
 	g15? ( app-misc/g15daemon )
-	jack? ( media-sound/jack-audio-connection-kit )
+	jack? ( virtual/jack )
 	portaudio? ( media-libs/portaudio )
 	pulseaudio? ( media-sound/pulseaudio )
 	speech? ( app-accessibility/speech-dispatcher )
@@ -47,15 +50,12 @@ RDEPEND=">=dev-libs/boost-1.41.0
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-1.2.4-speech-dispatcher.patch
-)
-
 S="${WORKDIR}/${MY_P}"
 
 src_prepare() {
-	epatch ${PATCHES[@]}
+	epatch "${FILESDIR}"/${PN}-1.2.4-speech-dispatcher.patch
 	use jack && epatch "${FILESDIR}"/${PN}-jack-support.patch
+	eapply_user
 }
 
 src_configure() {
@@ -86,11 +86,6 @@ src_configure() {
 			no-server \
 			no-update" \
 		DEFINES+="PLUGIN_PATH=/usr/$(get_libdir)/mumble"
-}
-
-src_compile() {
-	# parallel make workaround, bug #445960
-	emake -j1
 }
 
 src_install() {
