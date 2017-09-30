@@ -70,6 +70,3 @@ src_install() {
 
 	systemd_newunit "${S}/bin/service/hyperion.systemd.sh" hyperion.service
 }
-
-# https://github.com/hyperion-project/hyperion/blob/master/CompileHowto.txt
-# https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=hyperion-git
