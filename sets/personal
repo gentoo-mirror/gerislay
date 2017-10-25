@@ -1,4 +1,4 @@
 dev-python/pylint
 app-shells/zsh
-app-editors/neovim
+app-editors/neovim[python]
 sys-devel/clang
