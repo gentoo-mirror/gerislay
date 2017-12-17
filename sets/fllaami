@@ -1,0 +1,4 @@
+dev-python/ldap3
+dev-python/flask-login
+dev-python/flask-wtf
+dev-python/flask-mail
