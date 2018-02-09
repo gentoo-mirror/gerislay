@@ -16,6 +16,6 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE=""
 
-DEPEND="dev-python/pyserial
-	dev-python/python-daemon"
+DEPEND="dev-python/pyserial[${PYTHON_USEDEP}]
+	>=dev-python/python-daemon-2[${PYTHON_USEDEP}]"
 RDEPEND="${DEPEND}"
