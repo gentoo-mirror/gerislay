@@ -1,16 +1,15 @@
 # Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI=6
 
 inherit flag-o-matic scons-utils toolchain-funcs
 
 DESCRIPTION="Advanced Digital DJ tool based on Qt"
-HOMEPAGE="http://www.mixxx.org/"
+HOMEPAGE="https://www.mixxx.org/"
 
 if [[ ${PV} == "9999" ]]; then
-	EGIT_REPO_URI="git://github.com/mixxxdj/${PN}.git"
+	EGIT_REPO_URI="https://github.com/mixxxdj/${PN}.git"
 	inherit git-r3
 	KEYWORDS=""
 else
@@ -19,13 +18,26 @@ else
 	# Upstream patches
 	SRC_URI+=" https://github.com/mixxxdj/mixxx/commit/51d95ba58d99309f439cb7e2d1285cfb33aa0f63.patch -> ${PN}-2.0.0-ffmpeg30.patch"
 	SRC_URI+=" https://github.com/mixxxdj/mixxx/commit/869e07067b15e09bf7ef886a8772afdfb79cbc3c.patch -> ${PN}-2.0.0-ffmpeg31.patch"
-	KEYWORDS="~amd64 ~x86"
+	KEYWORDS="amd64 x86"
 
 	PATCHES=(
 		"${FILESDIR}"/${PN}-2.0.0-docs.patch
+
 		"${DISTDIR}"/${P}-ffmpeg30.patch
 		"${DISTDIR}"/${P}-ffmpeg31.patch
+
 		"${FILESDIR}"/${P}-chromaprint-1.4.patch #604528
+		"${FILESDIR}"/${P}-gcc62.patch #595090
+
+		"${FILESDIR}"/${PN}-2.0.0-sqlite3.patch #622776
+
+		# The following patches were taken from sunny-overlay (bug #608430)
+		"${FILESDIR}"/${P}-fix-formatting-of-time-durations.patch
+		"${FILESDIR}"/${P}-eliminate-unnecessary-heap-allocation-of-qtime.patch
+		"${FILESDIR}"/${P}-fix-missing-pointer-initialization.patch
+		"${FILESDIR}"/${P}-move-definition-of-time-formatseconds-into-dot-cpp-file.patch
+		"${FILESDIR}"/${P}-fix-formatting-of-time-durations2.patch
+		"${FILESDIR}"/${P}-rmx2-backport-controller-scripts.patch
 	)
 fi
 
@@ -35,7 +47,8 @@ IUSE="aac debug doc ffmpeg hid mp3 mp4 shout wavpack"
 
 # fails to compile system-fidlib. Add ">media-libs/fidlib-0.9.10-r1" once this
 # got fixed
-RDEPEND="dev-db/sqlite
+RDEPEND="
+	dev-db/sqlite
 	dev-libs/protobuf:0=
 	dev-qt/qtconcurrent:5
 	dev-qt/qtcore:5
@@ -72,9 +85,11 @@ RDEPEND="dev-db/sqlite
 	mp4? ( media-libs/libmp4v2:= )
 	shout? ( media-libs/libshout )
 	wavpack? ( media-sound/wavpack )
-	ffmpeg? ( media-video/ffmpeg:0= )"
+	ffmpeg? ( media-video/ffmpeg:0= )
+"
 # media-libs/rubberband RDEPENDs on sci-libs/fftw:3.0
-DEPEND="${RDEPEND}
+DEPEND="
+	${RDEPEND}
 	virtual/pkgconfig
 	dev-qt/qttest:5
 	dev-qt/qtxmlpatterns:5
