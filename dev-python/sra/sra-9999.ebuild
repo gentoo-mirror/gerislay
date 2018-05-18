@@ -8,7 +8,7 @@ inherit distutils-r1 git-r3
 
 DESCRIPTION="SRA Command Line Tools"
 HOMEPAGE="https://scm.sra.uni-hannover.de/source/sra-cli/"
-EGIT_REPO_URI="file:///home/gerion/sourcecode/sra-cli"
+EGIT_REPO_URI="https://scm.sra.uni-hannover.de/source/sra-cli.git"
 
 LICENSE="MIT"
 SLOT="0"
