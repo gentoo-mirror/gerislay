@@ -1,9 +1,0 @@
---- SConstruct.orig	2014-01-25 02:38:49.590860610 +0100
-+++ SConstruct	2014-01-25 02:48:14.535797827 +0100
-@@ -1,5 +1,6 @@
- import sys
- import os
-+from subprocess import _args_from_interpreter_flags
- import multiprocessing
- import SCons.Util
- 
