@@ -12,13 +12,14 @@ I recommend to add:
 to your package.mask.
 
 ## Installation
-To use this overlay with layman, add the url to the overlays variable in `/etc/layman/layman.cfg`:
-```
-https://git.finf.uni-hannover.de/Chrysops/gerislay/raw/master/repositories.xml
-```
-and then
+Use layman
 ```
 layman -a gerislay
 ```
+or with [eselect-repository](https://packages.gentoo.org/packages/app-eselect/eselect-repository):
+```
+eselect repository enable gerislay
+```
 
 Improvements and Pull Requests are welcome. Please open an issue for this.
+You can also send me patches per mail.
