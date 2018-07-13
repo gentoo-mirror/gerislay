@@ -45,9 +45,10 @@ src_configure() {
 	#$(use_with gtk gui)
 	#$(use_with jack)
 	econf \
+		--prefix="${EPREFIX}"/usr \
 		$(use_with lash) \
 		$(use_with lv2 lv2) \
-		$(usex lv2 "--with-lv2-dir=/usr/$(get_libdir)/lv2" "") \
+		$(usex lv2 "--with-lv2-dir=${EPREFIX}/usr/$(get_libdir)/lv2" "") \
 		$(use_enable static-libs static) \
 		$(use_enable cpu_flags_x86_sse sse) \
 		$(use_enable experimental)

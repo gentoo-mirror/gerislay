@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  <maintainer type="project">
-    <email>proaudio@gentoo.org</email>
-    <name>Gentoo ProAudio Project</name>
+  <maintainer type="person">
+    <email>gerion.entrup@flump.de</email>
+    <name>Gerion Entrup</name>
   </maintainer>
   <use>
     <flag name="lv2">Add support for Ladspa V2</flag>
