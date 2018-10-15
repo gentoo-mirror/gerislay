@@ -1,0 +1,9 @@
+#!/sbin/openrc-run
+# Copyright 1999-2018 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+
+name="lenovo-throttling-fix daemon"
+description="Workaround for Intel throttling issues in Linux."
+pidfile="/run/${RC_SVCNAME}.pid"
+command=/opt/lenovo_fix/lenovo_fix.py
+command_background=true
