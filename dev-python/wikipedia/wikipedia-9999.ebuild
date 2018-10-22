@@ -2,9 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=5
+EAPI=7
 
-PYTHON_COMPAT=( python{2_6,2_7,3_3} )
+PYTHON_COMPAT=( python{2_7,3_4,3_5,3_6,3_7} )
 
 EGIT_REPO_URI="https://github.com/goldsmith/Wikipedia.git"
 
@@ -20,6 +20,6 @@ KEYWORDS=""
 IUSE=""
 
 RDEPEND="dev-python/beautifulsoup:4[${PYTHON_USEDEP}]
-		 =dev-python/requests-1.2.3[${PYTHON_USEDEP}]"
+    	 =dev-python/requests-1.2.3[${PYTHON_USEDEP}]"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
