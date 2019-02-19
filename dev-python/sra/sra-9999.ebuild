@@ -13,12 +13,13 @@ EGIT_REPO_URI="https://scm.sra.uni-hannover.de/source/sra-cli.git"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE=""
+IUSE="qis"
 
 DEPEND="
 	dev-python/pyyaml[${PYTHON_USEDEP}]
 	dev-python/python-dateutil[${PYTHON_USEDEP}]
 	dev-python/rauth[${PYTHON_USEDEP}]
 	dev-python/requests[${PYTHON_USEDEP}]
-	dev-python/fusepy[${PYTHON_USEDEP}]"
+	dev-python/fusepy[${PYTHON_USEDEP}]
+	qis? ( app-shells/fzf )"
 RDEPEND="${DEPEND}"
