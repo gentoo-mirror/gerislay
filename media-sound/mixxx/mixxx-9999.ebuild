@@ -7,15 +7,9 @@ inherit flag-o-matic scons-utils toolchain-funcs
 
 DESCRIPTION="Advanced Digital DJ tool based on Qt"
 HOMEPAGE="https://www.mixxx.org/"
-if [[ "${PV}" == 9999 ]] ; then
-	inherit git-r3
-	EGIT_REPO_URI="https://github.com/mixxxdj/${PN}.git"
-else
-	#SRC_URI="https://downloads.mixxx.org/${P}/${P}-src.tar.gz"
-	SRC_URI="https://github.com/mixxxdj/${PN}/archive/release-${PV}.tar.gz -> ${P}.tar.gz"
-	S="${WORKDIR}/${PN}-release-${PV}"
-	KEYWORDS="~amd64 ~x86"
-fi
+
+inherit git-r3
+EGIT_REPO_URI="https://github.com/mixxxdj/${PN}.git"
 
 LICENSE="GPL-2"
 SLOT="0"
