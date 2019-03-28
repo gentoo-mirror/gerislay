@@ -1,0 +1,6 @@
+dev-python/django
+dev-python/django-etesync-journal
+dev-python/djangorestframework
+dev-python/drf-nested-routers
+dev-python/pytz
+www-servers/uwsgi
