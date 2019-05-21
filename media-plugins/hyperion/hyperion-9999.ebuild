@@ -14,17 +14,17 @@ EGIT_SUBMODULES=()
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS=""
-IUSE="dispmanx framebuffer spi +qt5 vfl X"
+IUSE="dispmanx framebuffer spi vfl X"
 
 DEPEND="x11-libs/libXrender
 	dev-util/cmake
 	virtual/libusb
 	dev-libs/icu
-	qt5? ( dev-qt/qtcore:5
-		dev-qt/qtgui:5
-		dev-qt/qtwidgets:5
-		dev-qt/qtnetwork:5
-		dev-qt/qtserialport:5 )
+	dev-qt/qtcore:5
+	dev-qt/qtgui:5
+	dev-qt/qtwidgets:5
+	dev-qt/qtnetwork:5
+	dev-qt/qtserialport:5
 	dev-lang/python
 	net-dns/avahi
 	dev-libs/protobuf"
@@ -43,7 +43,7 @@ src_configure() {
 		-DENABLE_DISPMANX="$(usex dispmanx)"
 		-DENABLE_FB="$(usex framebuffer)"
 		-DENABLE_SPIDEV="$(usex spi)"
-		-DENABLE_QT5="$(usex qt5)"
+		-DENABLE_QT5=on
 		-DENABLE_VFL2="$(usex vfl)"
 		-DENABLE_X11="$(usex X)"
 		-DCMAKE_BUILD_TYPE=Release
