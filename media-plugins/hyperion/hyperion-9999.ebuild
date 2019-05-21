@@ -43,7 +43,7 @@ src_configure() {
 		-DENABLE_DISPMANX="$(usex dispmanx)"
 		-DENABLE_FB="$(usex framebuffer)"
 		-DENABLE_SPIDEV="$(usex spi)"
-		-DENABLE_QT5=on
+		-DENABLE_QT5=yes
 		-DENABLE_VFL2="$(usex vfl)"
 		-DENABLE_X11="$(usex X)"
 		-DCMAKE_BUILD_TYPE=Release
