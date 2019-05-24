@@ -1,0 +1,32 @@
+From 7b59a2587a2d08a012f49e904c86db59374e63eb Mon Sep 17 00:00:00 2001
+From: "J. Kevin Bay" <seregon@gmail.com>
+Date: Sat, 21 Jan 2017 22:10:07 -0500
+Subject: [PATCH] Bugfix for issue #195 (Python 3.6 support)
+
+---
+ rauth/utils.py | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
+
+diff --git a/rauth/utils.py b/rauth/utils.py
+index b0b420a..6cdf5df 100644
+--- a/rauth/utils.py
++++ b/rauth/utils.py
+@@ -21,13 +21,12 @@ def absolute_url(url):
+ 
+ 
+ def parse_utf8_qsl(s):
+-    d = dict(parse_qsl(s))
++    d = dict()
+ 
+-    for k, v in d.items():  # pragma: no cover
++    for k, v in dict(parse_qsl(s)).items():  # pragma: no cover
+         if not isinstance(k, bytes) and not isinstance(v, bytes):
+             # skip this iteration if we have no keys or values to update
+             continue
+-        d.pop(k)
+         if isinstance(k, bytes):
+             k = k.decode('utf-8')
+         if isinstance(v, bytes):
+-- 
+2.21.0
+
