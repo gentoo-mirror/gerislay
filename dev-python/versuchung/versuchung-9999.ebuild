@@ -14,7 +14,7 @@ DESCRIPTION="a toolbox for experiments"
 HOMEPAGE="https://github.com//stettberger/versuchung"
 SRC_URI=""
 
-LICENSE="GPLv3"
+LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS=""
 IUSE=""
