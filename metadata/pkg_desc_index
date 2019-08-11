@@ -1,0 +1,41 @@
+app-arch/rarcrack 0.2: Password recovery for 7zip, rar and zip archives
+app-editors/gedit-collaboration 9999: GNOME Text Editor Collaboration Plugin
+app-misc/plirc 9999: A Python implementation of Lirc.
+app-misc/vimpager 9999: Use Vim as PAGER
+app-text/zotero-bin 5.0.66: A tool to help you collect, organize, cite, and share your research sources.
+dev-cpp/gperftools 2.7: Fast, multi-threaded malloc() and nifty performance analysis tools
+dev-libs/mtxclient 0.2.1: An implementation of the Double Ratchet cryptographic ratchet in C++
+dev-python/bibtexparser 1.0.1: A BibTeX parser written in python
+dev-python/blist 1.3.6: An asymptotically faster list-like type for Python
+dev-python/canonicaljson 1.0.0: Unpadded Base64
+dev-python/daemonize 2.4.7: Library to enable your code run as a daemon process on Unix-like systems.
+dev-python/django-etesync-journal 1.0.0: The server side implementation of the EteSync protocol
+dev-python/drf-nested-routers 0.91.0: Nested Routers for Django Rest Framework
+dev-python/frozendict 1.2: An immutable dictionary
+dev-python/junit2html 22: Tool to produce a single html file from a single junit xml file.
+dev-python/matrix-angular-sdk 0.6.8: Matrix Angular SDK
+dev-python/matrix-synapse-ldap3 0.1.2: An LDAP3 auth provider for Synapse
+dev-python/mbdata 9999: MusicBrainz Database Tools
+dev-python/pydenticon 0.3: Library for generating identicons. Port of Sigil with enhancements
+dev-python/pymacaroons-pynacl 0.9.3: PyMacaroons is a Python implementation of Macaroons
+dev-python/python-crontab 2.2.4: Python Crontab API
+dev-python/rauth 0.7.2: A Python library for OAuth 1.0/a, 2.0, and Ofly.
+dev-python/signedjson 1.0.0: Unpadded Base64
+dev-python/sra 9999: SRA Command Line Tools
+dev-python/unpaddedbase64 1.1.0: Unpadded Base64
+dev-python/versuchung 9999: a toolbox for experiments
+dev-python/wikipedia 9999: A Pythonic wrapper for the Wikipedia API
+dev-vcs/gitlint 0.10.0: Linting for your git commit messages
+games-action/supertuxkart 1.0 9999: A kart racing game starring Tux, the linux penguin (TuxKart fork)
+media-gfx/leocad 18.02: LeoCAD is a CAD program that uses bricks similar to those found in many toys.
+media-gfx/svg2pdf 0.1.3: Convert an SVG file to a PDF file (using cairo)
+media-gfx/svg2png 0.1.3: Render an SVG image to a PNG image (using cairo)
+media-libs/raop-play 0.5.1-r1: 
+media-plugins/calf 0.90.0-r2: A set of open source instruments and effects for digital audio workstations
+media-plugins/hyperion 9999: An opensource 'AmbiLight' implementation supported by many devices
+media-sound/pyjama 0.3.0.1: A Python/GTK application to play free music from Jamendo
+media-video/vobsub2srt 9999: Converts image subtitles created by VobSub (.sub/.idx) to .srt textual subtitles using tesseract OCR engine
+net-im/prosody-modules 9999: Add-on modules for Prosody IM Server written in Lua.
+net-misc/roger-router 1.9.3: Implements fax over TCP on your Fritz!Box
+sci-geosciences/qmapshack 9999: GPS mapping utility
+x11-plugins/pidgin-znchelper 1.5.1: Plugin, that removes ugly double-timestamps when replaying messages from ZNC bouncers
