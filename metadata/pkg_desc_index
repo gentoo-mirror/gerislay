@@ -35,7 +35,6 @@ media-plugins/calf 0.90.0-r2: A set of open source instruments and effects for d
 media-plugins/hyperion 9999: An opensource 'AmbiLight' implementation supported by many devices
 media-sound/pyjama 0.3.0.1: A Python/GTK application to play free music from Jamendo
 media-video/vobsub2srt 9999: Converts image subtitles created by VobSub (.sub/.idx) to .srt textual subtitles using tesseract OCR engine
-net-im/prosody-modules 9999: Add-on modules for Prosody IM Server written in Lua.
 net-misc/roger-router 1.9.3: Implements fax over TCP on your Fritz!Box
 sci-geosciences/qmapshack 9999: GPS mapping utility
 x11-plugins/pidgin-znchelper 1.5.1: Plugin, that removes ugly double-timestamps when replaying messages from ZNC bouncers
