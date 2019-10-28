@@ -1,4 +1,5 @@
-app-editors/neovim[python]
+app-editors/neovim
+app-editors/neovim-python-client
 app-shells/zsh
 dev-python/feedparser
 dev-python/pylint
