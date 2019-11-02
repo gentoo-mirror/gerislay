@@ -24,7 +24,6 @@ dev-python/sra 9999: SRA Command Line Tools
 dev-python/unpaddedbase64 1.1.0: Unpadded Base64
 dev-python/versuchung 9999: a toolbox for experiments
 dev-python/wikipedia 9999: A Pythonic wrapper for the Wikipedia API
-dev-util/meson 0.52.0: Open source build system
 dev-vcs/gitlint 0.10.0: Linting for your git commit messages
 games-action/supertuxkart 1.0 9999: A kart racing game starring Tux, the linux penguin (TuxKart fork)
 media-gfx/leocad 18.02: LeoCAD is a CAD program that uses bricks similar to those found in many toys.
