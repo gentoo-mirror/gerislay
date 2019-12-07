@@ -10,5 +10,5 @@ LICENSE=MIT VIM4 BSD2
 PROPERTIES=live
 RDEPEND=|| ( app-editors/vim app-editors/neovim ) app-arch/sharutils pandoc? ( app-text/pandoc ) doctoc? ( app-doc/doctoc )
 SLOT=0
-_eclasses_=git-r3	562b380fc59ae6a8622171d0acb777d1
+_eclasses_=git-r3	6d22636df236df4cc8475f7b7668bdcd
 _md5_=f517cd02f7135255449b21771f14edd1
