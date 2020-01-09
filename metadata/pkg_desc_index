@@ -12,6 +12,7 @@ dev-python/django-etesync-journal 1.0.0: The server side implementation of the E
 dev-python/drf-nested-routers 0.91.0: Nested Routers for Django Rest Framework
 dev-python/frozendict 1.2: An immutable dictionary
 dev-python/junit2html 22: Tool to produce a single html file from a single junit xml file.
+dev-python/lifxlan 9999: Python library for accessing LIFX devices using the official LIFX LAN protocol.
 dev-python/matrix-angular-sdk 0.6.8: Matrix Angular SDK
 dev-python/matrix-synapse-ldap3 0.1.2: An LDAP3 auth provider for Synapse
 dev-python/mbdata 9999: MusicBrainz Database Tools
