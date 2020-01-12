@@ -1,0 +1,12 @@
+DEFINED_PHASES=install unpack
+DEPEND=dev-libs/expat dev-libs/libbsd media-libs/mesa sys-devel/gcc[cxx] sys-libs/glibc x11-libs/libX11 x11-libs/libXau x11-libs/libXdamage x11-libs/libXdmcp x11-libs/libXext x11-libs/libXfixes x11-libs/libXxf86vm x11-libs/libdrm x11-libs/libxcb x11-libs/libxcb x11-libs/libxshmfence
+DESCRIPTION=Simple, low-latency game streaming
+EAPI=7
+HOMEPAGE=https://parsecgaming.com/
+KEYWORDS=~amd64 ~x86
+LICENSE=Parsec-EULA
+RDEPEND=dev-libs/expat dev-libs/libbsd media-libs/mesa sys-devel/gcc[cxx] sys-libs/glibc x11-libs/libX11 x11-libs/libXau x11-libs/libXdamage x11-libs/libXdmcp x11-libs/libXext x11-libs/libXfixes x11-libs/libXxf86vm x11-libs/libdrm x11-libs/libxcb x11-libs/libxcb x11-libs/libxshmfence
+SLOT=0
+SRC_URI=https://builds.parsecgaming.com/package/parsec-linux.deb
+_eclasses_=unpacker	3cd8bad0d31e525cd26be1bfa4e61631
+_md5_=3f8912150bc3fd9695e5ee5c24ca28fd
