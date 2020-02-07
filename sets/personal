@@ -1,5 +1,5 @@
 app-editors/neovim
-dev-python/neovim-python-client
+dev-python/pynvim
 app-shells/zsh
 dev-python/feedparser
 dev-python/pylint
