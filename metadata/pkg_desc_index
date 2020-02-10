@@ -1,5 +1,4 @@
 app-arch/rarcrack 0.2: Password recovery for 7zip, rar and zip archives
-app-editors/gedit-collaboration 9999: GNOME Text Editor Collaboration Plugin
 app-misc/plirc 9999: A Python implementation of Lirc.
 app-misc/vimpager 9999: Use Vim as PAGER
 app-text/zotero-bin 5.0.66: A tool to help you collect, organize, cite, and share your research sources.
