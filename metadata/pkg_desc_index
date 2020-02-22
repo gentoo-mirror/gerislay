@@ -24,6 +24,7 @@ dev-python/sra 9999: SRA Command Line Tools
 dev-python/unpaddedbase64 1.1.0: Unpadded Base64
 dev-python/versuchung 9999: a toolbox for experiments
 dev-python/wikipedia 9999: A Pythonic wrapper for the Wikipedia API
+dev-util/cargo-c 0.5.2: Helper program to build and install c-like libraries
 dev-util/cgdb 0.7.1: A curses front-end for GDB, the GNU debugger
 dev-util/ninja 1.10.0: A small build system similar to make
 dev-vcs/gitlint 0.10.0: Linting for your git commit messages
@@ -36,5 +37,7 @@ media-libs/raop-play 0.5.1-r1:
 media-plugins/calf 0.90.0-r2: A set of open source instruments and effects for digital audio workstations
 media-plugins/hyperion 9999: An opensource 'AmbiLight' implementation supported by many devices
 media-sound/pyjama 0.3.0.1: A Python/GTK application to play free music from Jamendo
+media-video/ffmpeg 9999: Complete solution to record, convert and stream audio and video. Includes libavcodec
+media-video/rav1e 9999: The fastest and safest AV1 encoder
 net-misc/roger-router 1.9.3: Implements fax over TCP on your Fritz!Box
 x11-plugins/pidgin-znchelper 1.5.1: Plugin, that removes ugly double-timestamps when replaying messages from ZNC bouncers
