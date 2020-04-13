@@ -25,7 +25,7 @@ PROSODY_MODULES="
 	auto_accept_subscriptions auto_activate_hosts auto_answer_disco_info
 	benchmark_storage bidi block_outgoing block_registrations
 	block_s2s_subscriptions block_strangers block_subscribes
-	block_subscriptions blocking bob bookmarks broadcast c2s_conn_throttle
+	block_subscriptions blocking bob bookmarks bookmarks2 broadcast c2s_conn_throttle
 	c2s_limit_sessions cache_c2s_caps captcha_registration carbons
 	carbons_adhoc carbons_copies checkcerts client_certs client_proxy
 	cloud_notify compact_resource compat_bind compat_dialback
