@@ -39,5 +39,6 @@ media-plugins/hyperion 9999: An opensource 'AmbiLight' implementation supported 
 media-sound/pyjama 0.3.0.1: A Python/GTK application to play free music from Jamendo
 media-video/ffmpeg 9999: Complete solution to record, convert and stream audio and video. Includes libavcodec
 media-video/rav1e 9999: The fastest and safest AV1 encoder
+net-im/prosody-modules 9999: Add-on modules for Prosody IM Server written in Lua.
 net-misc/roger-router 1.9.3: Implements fax over TCP on your Fritz!Box
 x11-plugins/pidgin-znchelper 1.5.1: Plugin, that removes ugly double-timestamps when replaying messages from ZNC bouncers
