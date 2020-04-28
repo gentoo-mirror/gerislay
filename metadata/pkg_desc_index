@@ -41,4 +41,5 @@ media-video/ffmpeg 9999: Complete solution to record, convert and stream audio a
 media-video/rav1e 9999: The fastest and safest AV1 encoder
 net-im/prosody-modules 9999: Add-on modules for Prosody IM Server written in Lua.
 net-misc/roger-router 1.9.3: Implements fax over TCP on your Fritz!Box
+sys-kernel/hwmon-it87 9999: Dead but better out of tree it87 module
 x11-plugins/pidgin-znchelper 1.5.1: Plugin, that removes ugly double-timestamps when replaying messages from ZNC bouncers
