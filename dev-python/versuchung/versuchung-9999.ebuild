@@ -4,11 +4,11 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python{2_7,3_4,3_5,3_6,3_7} )
-
-EGIT_REPO_URI="https://github.com/stettberger/${PN}.git"
+PYTHON_COMPAT=( python3_{7,8,9} pypy3 )
 
 inherit distutils-r1 git-r3
+
+EGIT_REPO_URI="https://github.com/stettberger/${PN}.git"
 
 DESCRIPTION="a toolbox for experiments"
 HOMEPAGE="https://github.com//stettberger/versuchung"
@@ -19,6 +19,6 @@ SLOT="0"
 KEYWORDS=""
 IUSE=""
 
-RDEPEND=""
+distutils_enable_sphinx docs
+distutils_enable_tests setup.py
 
-REQUIRED_USE="${PYTHON_REQUIRED_USE}"
