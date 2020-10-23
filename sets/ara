@@ -1,5 +1,6 @@
+dev-python/cython
+dev-util/meson
 dev-libs/boost
 dev-python/graph-tool
->=dev-util/meson-0.52.0
+dev-python/pydot
 sys-devel/llvm:9
->=dev-python/cython-0.29.4
