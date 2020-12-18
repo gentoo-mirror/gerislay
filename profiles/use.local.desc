@@ -309,3 +309,4 @@ net-im/prosody-modules:prosody_modules_vjud - Basic implementation of XEP-0055: 
 net-im/prosody-modules:prosody_modules_watchuntrusted - Similar to mod_watchregistrations, this module warns admins when an s2s connection fails due for encryption or trust reasons. (info: https://modules.prosody.im/mod_watchuntrusted)
 net-im/prosody-modules:prosody_modules_webpresence - Quite often you may want to publish your Jabber status to your blog or website. mod_webpresence allows you to do exactly this. (info: https://modules.prosody.im/mod_webpresence)
 net-im/prosody-modules:prosody_modules_xhtmlim - This module attempts to sanitize XHTML-IM messages. (info: https://modules.prosody.im/mod_xhtmlim)
+sys-fs/gocryptfs:man - Build and install man pages
