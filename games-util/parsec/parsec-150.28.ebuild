@@ -37,7 +37,7 @@ BDEPEND=""
 
 S=${WORKDIR}
 
-QA_PREBUILT="usr/bin/parsecd usr/share/${PN}/skel/parsecd-150-11.so"
+QA_PREBUILT="usr/bin/parsecd usr/share/${PN}/skel/parsecd-${PV/\./-}.so"
 
 src_unpack() {
 	unpack_deb ${A}
