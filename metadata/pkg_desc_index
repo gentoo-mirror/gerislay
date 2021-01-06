@@ -26,7 +26,7 @@ dev-python/versuchung 9999: a toolbox for experiments
 dev-python/wikipedia 9999: A Pythonic wrapper for the Wikipedia API
 dev-vcs/gitlint 0.10.0: Linting for your git commit messages
 games-action/supertuxkart 1.0 9999: A kart racing game starring Tux, the linux penguin (TuxKart fork)
-games-util/parsec 150.11: Simple, low-latency game streaming
+games-util/parsec 150.28: Simple, low-latency game streaming
 media-gfx/leocad 18.02: LeoCAD is a CAD program that uses bricks similar to those found in many toys.
 media-gfx/svg2pdf 0.1.3: Convert an SVG file to a PDF file (using cairo)
 media-gfx/svg2png 0.1.3: Render an SVG image to a PNG image (using cairo)
@@ -34,7 +34,6 @@ media-libs/raop-play 0.5.1-r1:
 media-plugins/calf 0.90.0-r2: A set of open source instruments and effects for digital audio workstations
 media-plugins/hyperion 9999: An opensource 'AmbiLight' implementation supported by many devices
 media-sound/pyjama 0.3.0.1: A Python/GTK application to play free music from Jamendo
-net-im/prosody-modules 9999: Add-on modules for Prosody IM Server written in Lua.
 sys-fs/gocryptfs 1.8.0: Encrypted overlay filesystem written in Go
 sys-kernel/hwmon-it87 9999: Dead but better out of tree it87 module
 x11-plugins/pidgin-znchelper 1.5.1: Plugin, that removes ugly double-timestamps when replaying messages from ZNC bouncers
