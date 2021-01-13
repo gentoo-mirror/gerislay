@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>gerion.entrup@flump.de</email>
+		<name>Gerion Entrup</name>
+	</maintainer>
+	<use>
+		<flag name="cec">Enable CEC control via <pkg>dev-libs/libcec</pkg></flag>
+		<flag name="spi">Enable the SPIDEV device</flag>
+		<flag name="tinkerforge">Enable the TINKERFORGE device</flag>
+		<flag name="qt-grabber">Enable the qt grabber</flag>
+	</use>
+	<upstream>
+		<remote-id type="github">hyperion-project/hyperion.ng</remote-id>
+	</upstream>
+</pkgmetadata>
