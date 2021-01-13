@@ -1,0 +1,35 @@
+From c832778b4c9a2096322dd5c15b18fb8f5bc4281b Mon Sep 17 00:00:00 2001
+From: Gerion Entrup <gerion.entrup@flump.de>
+Date: Wed, 13 Jan 2021 22:48:00 +0100
+Subject: [PATCH] Cmake: fix rpath
+
+---
+ CMakeLists.txt | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 62200bb2..de1cd319 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -355,12 +355,12 @@ if (NOT CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
+ endif()
+ 
+ # setup -rpath to search for shared libs in BINARY/../lib folder
+-if (UNIX AND NOT APPLE)
+-	SET(CMAKE_SKIP_BUILD_RPATH FALSE)
+-	SET(CMAKE_BUILD_WITH_INSTALL_RPATH TRUE)
+-	SET(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_RPATH}:$ORIGIN/../lib")
+-	SET(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
+-endif ()
++#if (UNIX AND NOT APPLE)
++#	SET(CMAKE_SKIP_BUILD_RPATH FALSE)
++#	SET(CMAKE_BUILD_WITH_INSTALL_RPATH TRUE)
++#	SET(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_RPATH}:$ORIGIN/../lib")
++#	SET(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
++#endif ()
+ 
+ # add QT5 dependency
+ IF ( CMAKE_CROSSCOMPILING )
+-- 
+2.26.2
+

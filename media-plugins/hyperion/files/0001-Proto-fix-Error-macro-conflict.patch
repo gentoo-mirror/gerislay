@@ -1,0 +1,79 @@
+From 559fd409d332e56dd0ad56aa89bcaaa8c533677a Mon Sep 17 00:00:00 2001
+From: Gerion Entrup <gerion.entrup@flump.de>
+Date: Wed, 13 Jan 2021 19:48:57 +0100
+Subject: [PATCH] Proto*: fix Error macro conflict
+
+utils/Logger.h contains a preprocessor macro Error() for easy logging.
+However, the upstream protobuf/io/coded_stream.h also defines a private
+function Error() in one of it's classes that conflicts with this macro.
+
+Unfortunate include orders results then in a build error. This commit
+reorders the includes to prevent the error. It also defines an extra
+`#undef Error` before including upstream protobuf to make the problem
+more visible.
+
+Fixes: #882
+---
+ libsrc/protoserver/ProtoClientConnection.cpp | 7 ++++---
+ libsrc/protoserver/ProtoClientConnection.h   | 7 ++++---
+ libsrc/protoserver/ProtoServer.cpp           | 2 +-
+ 3 files changed, 9 insertions(+), 7 deletions(-)
+
+diff --git a/libsrc/protoserver/ProtoClientConnection.cpp b/libsrc/protoserver/ProtoClientConnection.cpp
+index e8bf1d91..051ca3e7 100644
+--- a/libsrc/protoserver/ProtoClientConnection.cpp
++++ b/libsrc/protoserver/ProtoClientConnection.cpp
+@@ -1,12 +1,13 @@
+-// project includes
+-#include "ProtoClientConnection.h"
+-
+ // qt
+ #include <QTcpSocket>
+ #include <QHostAddress>
+ #include <QTimer>
+ #include <QRgb>
+ 
++// project includes
++#include "ProtoClientConnection.h"
++
++
+ // TODO Remove this class if third-party apps have been migrated (eg. Hyperion Android Grabber, Windows Screen grabber etc.)
+ 
+ ProtoClientConnection::ProtoClientConnection(QTcpSocket* socket, int timeout, QObject *parent)
+diff --git a/libsrc/protoserver/ProtoClientConnection.h b/libsrc/protoserver/ProtoClientConnection.h
+index 6d8ce378..6ee947ab 100644
+--- a/libsrc/protoserver/ProtoClientConnection.h
++++ b/libsrc/protoserver/ProtoClientConnection.h
+@@ -1,14 +1,15 @@
+ #pragma once
+ 
++// protobuffer PROTO
++#undef Error
++#include "message.pb.h"
++
+ // util
+ #include <utils/Logger.h>
+ #include <utils/Image.h>
+ #include <utils/ColorRgb.h>
+ #include <utils/Components.h>
+ 
+-// protobuffer PROTO
+-#include "message.pb.h"
+-
+ class QTcpSocket;
+ class QTimer;
+ 
+diff --git a/libsrc/protoserver/ProtoServer.cpp b/libsrc/protoserver/ProtoServer.cpp
+index 7bfc2954..fb45ae60 100644
+--- a/libsrc/protoserver/ProtoServer.cpp
++++ b/libsrc/protoserver/ProtoServer.cpp
+@@ -1,5 +1,5 @@
+-#include <protoserver/ProtoServer.h>
+ #include "ProtoClientConnection.h"
++#include <protoserver/ProtoServer.h>
+ 
+ // util
+ #include <utils/NetOrigin.h>
+-- 
+2.26.2
+
