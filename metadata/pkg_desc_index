@@ -1,3 +1,5 @@
+acct-group/hyperion 0: Group for media-plugins/hyperion (daemon)
+acct-user/hyperion 0: User for media-plugins/hyperion (daemon)
 app-arch/rarcrack 0.2: Password recovery for 7zip, rar and zip archives
 app-misc/plirc 9999: A Python implementation of Lirc.
 app-text/zotero-bin 5.0.66: A tool to help you collect, organize, cite, and share your research sources.
@@ -32,7 +34,7 @@ media-gfx/svg2pdf 0.1.3: Convert an SVG file to a PDF file (using cairo)
 media-gfx/svg2png 0.1.3: Render an SVG image to a PNG image (using cairo)
 media-libs/raop-play 0.5.1-r1: 
 media-plugins/calf 0.90.0-r2: A set of open source instruments and effects for digital audio workstations
-media-plugins/hyperion 9999: An opensource 'AmbiLight' implementation supported by many devices
+media-plugins/hyperion 9999: An opensource 'AmbiLight' implementation (next generation)
 media-sound/pyjama 0.3.0.1: A Python/GTK application to play free music from Jamendo
 sys-fs/gocryptfs 1.8.0: Encrypted overlay filesystem written in Go
 sys-kernel/hwmon-it87 9999: Dead but better out of tree it87 module

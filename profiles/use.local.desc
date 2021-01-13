@@ -6,4 +6,8 @@ games-action/supertuxkart:fribidi - Support for right-to-left languages
 games-action/supertuxkart:recorder - Enable recording with media-libs/libopenglrecorder
 games-action/supertuxkart:wiimote - Support for wiimote input devices
 media-plugins/calf:lv2 - Add support for Ladspa V2
+media-plugins/hyperion:cec - Enable CEC control via dev-libs/libcec
+media-plugins/hyperion:qt-grabber - Enable the qt grabber
+media-plugins/hyperion:spi - Enable the SPIDEV device
+media-plugins/hyperion:tinkerforge - Enable the TINKERFORGE device
 sys-fs/gocryptfs:man - Build and install man pages
