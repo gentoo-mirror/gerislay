@@ -107,5 +107,5 @@ src_install() {
 	ewarn "user to the uucp group: usermod -G uucp hyperion"
 
 	newinitd "${FILESDIR}"/hyperion.initd hyperion
-	systemd_newunit "${S}/share/hyperion/service/hyperion.systemd" hyperion.service
+	systemd_newunit "${S}/bin/service/hyperion.systemd" hyperion.service
 }
