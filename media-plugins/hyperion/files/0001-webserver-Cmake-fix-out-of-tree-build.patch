@@ -1,0 +1,43 @@
+From 64a010a76a2fd36e933a6922e34b3b76920a352a Mon Sep 17 00:00:00 2001
+From: Gerion Entrup <gerion.entrup@flump.de>
+Date: Thu, 14 Jan 2021 14:27:30 +0100
+Subject: [PATCH] webserver/Cmake: fix out-of-tree build
+
+When using a cmake directory that is not a subfolder of the repository
+root folder the current path replacement logic for webresources does not
+work. This commit makes the replacement pattern also relative to the
+build directory.
+
+Reproduce with:
+git clone hyperion-repo
+mkdir build; cd build
+cmake ../hyperion-repo
+
+Without this chance the build itself succeeds but browsing the
+webinterface results in:
+404 - Requested file: index.html
+
+Related: #834
+---
+ libsrc/webserver/CMakeLists.txt | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/libsrc/webserver/CMakeLists.txt b/libsrc/webserver/CMakeLists.txt
+index 175df60e..3a6843dd 100644
+--- a/libsrc/webserver/CMakeLists.txt
++++ b/libsrc/webserver/CMakeLists.txt
+@@ -5,9 +5,10 @@ set(CURRENT_SOURCE_DIR ${CMAKE_SOURCE_DIR}/libsrc/webserver)
+ 
+ FILE ( GLOB WebConfig_SOURCES "${CURRENT_HEADER_DIR}/*.h"  "${CURRENT_SOURCE_DIR}/*.h"  "${CURRENT_SOURCE_DIR}/*.cpp" )
+ FILE ( GLOB_RECURSE webFiles RELATIVE ${CMAKE_BINARY_DIR}  ${CMAKE_SOURCE_DIR}/assets/webconfig/* )
++FILE ( RELATIVE_PATH webConfigPath ${CMAKE_BINARY_DIR} ${CMAKE_SOURCE_DIR}/assets/webconfig)
+ 
+ FOREACH( f ${webFiles} )
+-    STRING ( REPLACE "../assets/webconfig/" "" fname ${f})
++    STRING ( REPLACE "${webConfigPath}/" "" fname ${f})
+     SET(HYPERION_WEBCONFIG_RES "${HYPERION_WEBCONFIG_RES}\n\t\t<file alias=\"/webconfig/${fname}\">${f}</file>")
+ ENDFOREACH()
+ CONFIGURE_FILE(${CURRENT_SOURCE_DIR}/WebConfig.qrc.in ${CMAKE_BINARY_DIR}/WebConfig.qrc )
+-- 
+2.26.2
+
