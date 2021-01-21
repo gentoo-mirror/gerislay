@@ -1,6 +1,7 @@
 acct-group/hyperion 0: Group for media-plugins/hyperion (daemon)
 acct-user/hyperion 0: User for media-plugins/hyperion (daemon)
 app-arch/rarcrack 0.2: Password recovery for 7zip, rar and zip archives
+app-misc/plirc 9999: A Python implementation of Lirc.
 app-text/zotero-bin 5.0.66: A tool to help you collect, organize, cite, and share your research sources.
 dev-cpp/gperftools 2.7: Fast, multi-threaded malloc() and nifty performance analysis tools
 dev-libs/mtxclient 0.2.1: An implementation of the Double Ratchet cryptographic ratchet in C++
