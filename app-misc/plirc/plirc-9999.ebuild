@@ -1,9 +1,9 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2021 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
-PYTHON_COMPAT=( python3_6 )
+PYTHON_COMPAT=( python3_{7..9} )
 inherit distutils-r1 git-r3
 
 DESCRIPTION="A Python implementation of Lirc."
@@ -13,7 +13,7 @@ EGIT_REPO_URI="https://gitlab.com/geri0n/plirc.git"
 
 LICENSE="GPLv3"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS=""
 IUSE=""
 
 DEPEND="dev-python/pyserial[${PYTHON_USEDEP}]
