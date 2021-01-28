@@ -3,3 +3,4 @@ dev-python/pynvim
 app-shells/zsh
 dev-python/feedparser
 dev-python/pylint
+x11-terms/kitty-terminfo
