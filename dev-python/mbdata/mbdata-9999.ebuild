@@ -27,8 +27,7 @@ IUSE="test"
 RDEPEND=">=dev-python/sqlalchemy-0.9.8[${PYTHON_USEDEP}]
 	dev-python/flask[${PYTHON_USEDEP}]
 	dev-python/lxml[${PYTHON_USEDEP}]
-	dev-python/six[${PYTHON_USEDEP}]
-	dev-python/pysolr[${PYTHON_USEDEP}]"
+	dev-python/six[${PYTHON_USEDEP}]"
 DEPEND="test? ( ${RDEPEND}
 	dev-python/nose[${PYTHON_USEDEP}]
 	dev-python/python-sqlparse[${PYTHON_USEDEP}] )
