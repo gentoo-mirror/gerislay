@@ -60,10 +60,8 @@ RDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}"/0001-Proto-fix-Error-macro-conflict.patch
 	"${FILESDIR}"/0001-CMake-prevent-lib-copies-for-package-creation.patch
 	"${FILESDIR}"/0001-Cmake-fix-rpath.patch
-	"${FILESDIR}"/0001-webserver-Cmake-fix-out-of-tree-build.patch
 )
 
 src_configure() {
