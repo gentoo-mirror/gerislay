@@ -2,6 +2,7 @@ DEFINED_PHASES=install
 DESCRIPTION=A tool to help you collect, organize, cite, and share your research sources.
 EAPI=6
 HOMEPAGE=https://www.zotero.org/
+INHERIT=desktop
 KEYWORDS=~amd64
 LICENSE=GPL-3
 SLOT=0
