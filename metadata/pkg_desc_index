@@ -24,7 +24,6 @@ games-util/parsec 150.28: Simple, low-latency game streaming
 media-gfx/leocad 18.02: LeoCAD is a CAD program that uses bricks similar to those found in many toys.
 media-gfx/svg2pdf 0.1.3: Convert an SVG file to a PDF file (using cairo)
 media-gfx/svg2png 0.1.3: Render an SVG image to a PNG image (using cairo)
-media-libs/raop-play 0.5.1-r1: 
 media-plugins/calf 0.90.0-r2: A set of open source instruments and effects for digital audio workstations
 media-plugins/hyperion 9999: An opensource 'AmbiLight' implementation (next generation)
 media-sound/pyjama 0.3.0.1: A Python/GTK application to play free music from Jamendo
