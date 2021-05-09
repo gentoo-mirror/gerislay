@@ -22,8 +22,6 @@ dev-vcs/gitlint 0.10.0: Linting for your git commit messages
 games-action/supertuxkart 1.0 9999: A kart racing game starring Tux, the linux penguin (TuxKart fork)
 games-util/parsec 150.28: Simple, low-latency game streaming
 media-gfx/leocad 18.02: LeoCAD is a CAD program that uses bricks similar to those found in many toys.
-media-gfx/svg2pdf 0.1.3: Convert an SVG file to a PDF file (using cairo)
-media-gfx/svg2png 0.1.3: Render an SVG image to a PNG image (using cairo)
 media-plugins/calf 0.90.0-r2: A set of open source instruments and effects for digital audio workstations
 media-plugins/hyperion 9999: An opensource 'AmbiLight' implementation (next generation)
 media-sound/pyjama 0.3.0.1: A Python/GTK application to play free music from Jamendo
