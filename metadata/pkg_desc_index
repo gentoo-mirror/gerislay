@@ -5,20 +5,12 @@ app-misc/plirc 9999: A Python implementation of Lirc.
 app-text/zotero-bin 5.0.66: A tool to help you collect, organize, cite, and share your research sources.
 dev-cpp/gperftools 2.7: Fast, multi-threaded malloc() and nifty performance analysis tools
 dev-libs/mtxclient 0.2.1: An implementation of the Double Ratchet cryptographic ratchet in C++
-dev-python/asteval 0.9.18: ASTEVAL provides a numpy-aware, safe(ish) eval function
 dev-python/bibtexparser 1.1.0: A BibTeX parser written in python
 dev-python/brokenaxes 9999: Create matplotlib plots with broken axes
-dev-python/django-etesync-journal 1.0.0: The server side implementation of the EteSync protocol
-dev-python/drf-nested-routers 0.91.0: Nested Routers for Django Rest Framework
-dev-python/junit2html 22: Tool to produce a single html file from a single junit xml file.
 dev-python/lifxlan 9999: Python library for accessing LIFX devices using the official LIFX LAN protocol.
-dev-python/mbdata 9999: MusicBrainz Database Tools
 dev-python/ptpython 3.0.6: Python REPL build on top of prompt_toolkit
-dev-python/rauth 0.7.2: A Python library for OAuth 1.0/a, 2.0, and Ofly.
 dev-python/sra 9999: SRA Command Line Tools
 dev-python/versuchung 9999: a toolbox for experiments
-dev-python/wikipedia 9999: A Pythonic wrapper for the Wikipedia API
-dev-vcs/gitlint 0.10.0: Linting for your git commit messages
 games-action/supertuxkart 1.0 9999: A kart racing game starring Tux, the linux penguin (TuxKart fork)
 games-util/parsec 150.28: Simple, low-latency game streaming
 media-gfx/leocad 18.02: LeoCAD is a CAD program that uses bricks similar to those found in many toys.
