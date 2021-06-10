@@ -4,7 +4,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python{2_7,3_4,3_5,3_6,3_7} )
+PYTHON_COMPAT=( python3_{8..10} )
 
 if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://bitbucket.org/lalinsky/mbdata.git"
