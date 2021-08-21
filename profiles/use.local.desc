@@ -10,4 +10,9 @@ media-plugins/hyperion:cec - Enable CEC control via dev-libs/libcec
 media-plugins/hyperion:qt-grabber - Enable the qt grabber
 media-plugins/hyperion:spi - Enable the SPIDEV device
 media-plugins/hyperion:tinkerforge - Enable the TINKERFORGE device
+media-sound/mixxx:hid - Enable HID controller support
+media-sound/mixxx:keyfinder - Enable musical key detection support via media-libs/libkeyfinder
+media-sound/mixxx:lv2 - Add support for Ladspa V2 via media-libs/lilv
+media-sound/mixxx:qtkeychain - Enable Secure credential storage support via dev-libs/qtkeychain
+media-sound/mixxx:shout - Enable broadcasting support via media-libs/libshout
 sys-fs/gocryptfs:man - Build and install man pages
