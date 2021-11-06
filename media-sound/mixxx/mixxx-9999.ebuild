@@ -84,6 +84,7 @@ BDEPEND="virtual/pkgconfig
 PATCHES=(
 	"${FILESDIR}"/mixxx-9999-docs.patch
 	"${FILESDIR}"/mixxx-9999-gentoo-build.patch
+	"${FILESDIR}"/drop-mixxx-test.patch
 	)
 
 src_prepare() {
