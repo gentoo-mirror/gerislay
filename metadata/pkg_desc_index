@@ -5,7 +5,6 @@ app-misc/plirc 9999: A Python implementation of Lirc.
 app-text/zotero-bin 5.0.66: A tool to help you collect, organize, cite, and share your research sources.
 dev-cpp/gperftools 2.7: Fast, multi-threaded malloc() and nifty performance analysis tools
 dev-libs/mtxclient 0.2.1: An implementation of the Double Ratchet cryptographic ratchet in C++
-dev-python/bibtexparser 1.1.0: A BibTeX parser written in python
 dev-python/brokenaxes 9999: Create matplotlib plots with broken axes
 dev-python/lifxlan 9999: Python library for accessing LIFX devices using the official LIFX LAN protocol.
 dev-python/mbdata 9999: MusicBrainz Database Tools
