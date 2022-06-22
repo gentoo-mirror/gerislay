@@ -7,5 +7,5 @@ KEYWORDS=~amd64
 LICENSE=GPL-3
 SLOT=0
 SRC_URI=https://www.zotero.org/download/client/dl?channel=release&platform=linux-x86_64&version=5.0.66 -> Zotero-5.0.66_linux-x86_64.tar.bz
-_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28
+_eclasses_=desktop	22952d8f27cac191d75529d4c38e6bfa
 _md5_=d8549dca4af1c7c5cb799517d2fccf50
