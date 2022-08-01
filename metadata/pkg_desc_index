@@ -4,7 +4,6 @@ app-arch/rarcrack 0.2: Password recovery for 7zip, rar and zip archives
 app-misc/plirc 9999: A Python implementation of Lirc.
 app-text/zotero-bin 5.0.66: A tool to help you collect, organize, cite, and share your research sources.
 dev-cpp/gperftools 2.7: Fast, multi-threaded malloc() and nifty performance analysis tools
-dev-libs/mtxclient 0.2.1: An implementation of the Double Ratchet cryptographic ratchet in C++
 dev-python/brokenaxes 9999: Create matplotlib plots with broken axes
 dev-python/lifxlan 9999: Python library for accessing LIFX devices using the official LIFX LAN protocol.
 dev-python/mbdata 9999: MusicBrainz Database Tools
@@ -13,7 +12,6 @@ dev-python/rauth 0.7.2: A Python library for OAuth 1.0/a, 2.0, and Ofly.
 dev-python/sra 9999: SRA Command Line Tools
 dev-python/versuchung 9999: a toolbox for experiments
 dev-tex/pgf 3.1.9a: The TeX Portable Graphic Format
-games-action/supertuxkart 1.0 9999: A kart racing game starring Tux, the linux penguin (TuxKart fork)
 games-util/parsec 150.28: Simple, low-latency game streaming
 media-gfx/leocad 18.02: LeoCAD is a CAD program that uses bricks similar to those found in many toys.
 media-plugins/calf 0.90.0-r2: A set of open source instruments and effects for digital audio workstations
