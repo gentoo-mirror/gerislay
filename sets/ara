@@ -3,4 +3,6 @@ dev-util/meson
 dev-libs/boost
 dev-python/graph-tool
 dev-python/pydot
-sys-devel/llvm:9
+sys-devel/llvm:12
+sys-devel/clang:12
+sci-mathematics/z3
