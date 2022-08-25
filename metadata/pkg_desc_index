@@ -8,6 +8,7 @@ dev-python/brokenaxes 9999: Create matplotlib plots with broken axes
 dev-python/lifxlan 9999: Python library for accessing LIFX devices using the official LIFX LAN protocol.
 dev-python/mbdata 9999: MusicBrainz Database Tools
 dev-python/ptpython 3.0.6: Python REPL build on top of prompt_toolkit
+dev-python/py-spy 0.3.12: Sampling profiler for Python programs
 dev-python/rauth 0.7.2: A Python library for OAuth 1.0/a, 2.0, and Ofly.
 dev-python/sra 9999: SRA Command Line Tools
 dev-python/versuchung 9999: a toolbox for experiments
