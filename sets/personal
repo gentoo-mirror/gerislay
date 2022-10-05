@@ -4,3 +4,11 @@ app-shells/zsh
 dev-python/feedparser
 dev-python/pylint
 x11-terms/kitty-terminfo
+
+#for neovim
+dev-util/lua-language-server
+dev-tex/texlab
+sys-devel/clang
+dev-util/rust-analyzer
+dev-python/python-lsp-server
+dev-util/stylua
