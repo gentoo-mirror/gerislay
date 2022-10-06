@@ -14,6 +14,7 @@ dev-python/sra 9999: SRA Command Line Tools
 dev-python/versuchung 9999: a toolbox for experiments
 dev-tex/pgf 3.1.9a: The TeX Portable Graphic Format
 games-util/parsec 150.28: Simple, low-latency game streaming
+kde-apps/keysmith 22.09: OTP client for Plasma Mobile and Desktop
 media-gfx/leocad 18.02: LeoCAD is a CAD program that uses bricks similar to those found in many toys.
 media-plugins/calf 0.90.0-r2: A set of open source instruments and effects for digital audio workstations
 media-plugins/hyperion 9999: An opensource 'AmbiLight' implementation (next generation)
