@@ -22,5 +22,6 @@ DEPEND="
 	dev-python/requests[${PYTHON_USEDEP}]
 	dev-python/fusepy[${PYTHON_USEDEP}]
 	dev-python/lxml[${PYTHON_USEDEP}]
+	dev-vcs/python-gitlab[${PYTHON_USEDEP}]
 	qis? ( app-shells/fzf )"
 RDEPEND="${DEPEND}"
