@@ -4,4 +4,4 @@ dev-tex/texlab
 sys-devel/clang
 dev-util/rust-analyzer
 dev-python/python-lsp-server
-dev-util/stylua
+dev-lua/StyLua
