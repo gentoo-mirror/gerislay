@@ -9,5 +9,5 @@ LICENSE=Parsec-EULA
 RDEPEND=dev-libs/expat dev-libs/libbsd media-libs/mesa sys-devel/gcc[cxx] sys-libs/glibc x11-libs/libX11 x11-libs/libXau x11-libs/libXdamage x11-libs/libXdmcp x11-libs/libXext x11-libs/libXfixes x11-libs/libXxf86vm x11-libs/libdrm x11-libs/libxcb x11-libs/libxcb x11-libs/libxshmfence
 SLOT=0
 SRC_URI=https://builds.parsecgaming.com/package/parsec-linux.deb
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	unpacker	65735fed9c1c30cb461c90db600ac990
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	unpacker	79b8360df7fa828892dd5c4dfc23242d
 _md5_=da6f9864b9810f3201dab5ba80f1dd7b
