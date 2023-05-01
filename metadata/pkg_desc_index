@@ -1,10 +1,8 @@
 acct-group/hyperion 0: Group for media-plugins/hyperion (daemon)
 acct-user/hyperion 0: User for media-plugins/hyperion (daemon)
 app-arch/rarcrack 0.2: Password recovery for 7zip, rar and zip archives
-app-misc/plirc 9999: A Python implementation of Lirc.
 app-text/zotero-bin 5.0.66: A tool to help you collect, organize, cite, and share your research sources.
 dev-cpp/gperftools 2.7: Fast, multi-threaded malloc() and nifty performance analysis tools
-dev-python/brokenaxes 9999: Create matplotlib plots with broken axes
 dev-python/lifxlan 9999: Python library for accessing LIFX devices using the official LIFX LAN protocol.
 dev-python/mbdata 9999: MusicBrainz Database Tools
 dev-python/ptpython 3.0.6 3.0.22: Python REPL build on top of prompt_toolkit
