@@ -9,11 +9,10 @@ PVCUT=$(ver_cut 1-3)
 KFMIN=5.91.0
 QTMIN=5.15.2
 VIRTUALX_REQUIRED="test"
-inherit ecm optfeature
+inherit ecm gear.kde.org optfeature
 
 DESCRIPTION="OTP client for Plasma Mobile and Desktop"
 HOMEPAGE="https://invent.kde.org/utilities/keysmith"
-SRC_URI="https://download.kde.org/stable/plasma-mobile/${PV}/${P}.tar.xz"
 
 LICENSE="GPL-3"
 SLOT="5"
