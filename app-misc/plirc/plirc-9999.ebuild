@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7..9} )
+PYTHON_COMPAT=( python3_{8..11} )
 inherit distutils-r1 git-r3
 
 DESCRIPTION="A Python implementation of Lirc."
