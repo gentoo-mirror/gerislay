@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python2_7 python3_{8..10} )
+PYTHON_COMPAT=( python2_7 python3_{8..11} )
 inherit distutils-r1
 
 DESCRIPTION="A Python library for OAuth 1.0/a, 2.0, and Ofly."
