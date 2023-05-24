@@ -7,11 +7,11 @@ inherit unpacker
 
 DESCRIPTION="Simple, low-latency game streaming"
 HOMEPAGE="https://parsecgaming.com/"
-SRC_URI="https://builds.parsecgaming.com/package/parsec-linux.deb"
+SRC_URI="https://builds.parsec.app/package/parsec-linux.deb -> ${P}.deb"
 
 LICENSE="Parsec-EULA"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64"
 IUSE=""
 
 DEPEND="

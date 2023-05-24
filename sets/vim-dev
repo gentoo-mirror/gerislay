@@ -1,7 +1,11 @@
 #language server for neovim
-dev-util/lua-language-server
-dev-tex/texlab
-sys-devel/clang
-dev-util/rust-analyzer
-dev-python/python-lsp-server
 dev-lua/StyLua
+dev-python/debugpy
+dev-python/python-lsp-server
+dev-tex/texlab
+dev-util/lldb
+dev-util/ltex-ls
+dev-util/lua-language-server
+dev-util/rust-analyzer
+dev-util/tree-sitter-cli
+sys-devel/clang

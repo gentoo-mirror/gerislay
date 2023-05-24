@@ -17,10 +17,10 @@ if [[ ${PV} == *9999* ]];then
 	SRC_URI=""
 	KEYWORDS=""
 else
-	LIB_NUM="9781"
+	LIB_NUM="23.01"
 	SRC_URI="
 		${BASE_URI}/archive/v${PV}.tar.gz -> ${P}.tar.gz
-		${BASE_URI}/releases/download/v${PV}/Library-Linux-${LIB_NUM}.zip
+		${BASE_URI}/releases/download/v${PV}/Library-${LIB_NUM}.zip
 	"
 	KEYWORDS="~x86 ~amd64 ~arm"
 fi
