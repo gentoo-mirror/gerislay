@@ -20,8 +20,12 @@ DEPEND="
 	dev-python/python-dateutil[${PYTHON_USEDEP}]
 	dev-python/rauth[${PYTHON_USEDEP}]
 	dev-python/requests[${PYTHON_USEDEP}]
-	dev-python/fusepy[${PYTHON_USEDEP}]
 	dev-python/lxml[${PYTHON_USEDEP}]
 	dev-vcs/python-gitlab[${PYTHON_USEDEP}]
 	qis? ( app-shells/fzf )"
 RDEPEND="${DEPEND}"
+
+pkg_postinst() {
+	elog 'WARNING: the studip mounting is not working, since it depends on the deprecated fusepy.'
+}
+

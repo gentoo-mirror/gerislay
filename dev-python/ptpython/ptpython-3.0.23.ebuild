@@ -18,7 +18,7 @@ IUSE=""
 RDEPEND="
 	dev-python/appdirs[${PYTHON_USEDEP}]
 	dev-python/jedi[${PYTHON_USEDEP}]
-	>=dev-python/prompt_toolkit-3.0.18[${PYTHON_USEDEP}]
-	<dev-python/prompt_toolkit-3.1.0[${PYTHON_USEDEP}]
+	>=dev-python/prompt-toolkit-3.0.18[${PYTHON_USEDEP}]
+	<dev-python/prompt-toolkit-3.1.0[${PYTHON_USEDEP}]
 	dev-python/pygments[${PYTHON_USEDEP}]
 "
