@@ -4,6 +4,7 @@ app-misc/plirc 9999: A Python implementation of Lirc.
 app-text/zotero-bin 5.0.66: A tool to help you collect, organize, cite, and share your research sources.
 dev-cpp/gperftools 2.7: Fast, multi-threaded malloc() and nifty performance analysis tools
 dev-python/lifxlan 9999: Python library for accessing LIFX devices using the official LIFX LAN protocol.
+dev-python/luadata 1.0.5: Serialize Python list & dictionary to Lua tables.
 dev-python/mbdata 9999: MusicBrainz Database Tools
 dev-python/ptpython 3.0.23: Python REPL build on top of prompt_toolkit
 dev-python/py-spy 0.3.12: Sampling profiler for Python programs
