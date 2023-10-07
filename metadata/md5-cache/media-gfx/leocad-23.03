@@ -1,0 +1,13 @@
+DEFINED_PHASES=configure install
+DEPEND=dev-qt/qtcore:5 dev-qt/qtopengl:5 dev-qt/qtconcurrent:5
+DESCRIPTION=LeoCAD is a CAD program that uses bricks similar to those found in many toys.
+EAPI=8
+HOMEPAGE=http://www.leocad.org
+INHERIT=qmake-utils
+KEYWORDS=~x86 ~amd64 ~arm
+LICENSE=GPL-2
+RDEPEND=dev-qt/qtcore:5 dev-qt/qtopengl:5 dev-qt/qtconcurrent:5 x11-themes/hicolor-icon-theme
+SLOT=0
+SRC_URI=https://github.com/leozide/leocad/archive/v23.03.tar.gz -> leocad-23.03.tar.gz https://github.com/leozide/leocad/releases/download/v23.03/Library-23.01.zip
+_eclasses_=toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81
+_md5_=a2df414afafd7f57f6d59e33ddfb655a
