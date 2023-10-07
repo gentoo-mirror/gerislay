@@ -4,8 +4,9 @@ dev-python/debugpy
 dev-python/python-lsp-server
 dev-tex/texlab
 dev-util/lldb
-dev-util/ltex-ls
+app-text/ltex-ls
 dev-util/lua-language-server
 dev-util/rust-analyzer
 dev-util/tree-sitter-cli
 sys-devel/clang
+app-text/languagetool
