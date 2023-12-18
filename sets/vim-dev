@@ -6,7 +6,7 @@ dev-tex/texlab
 dev-util/lldb
 app-text/ltex-ls
 dev-util/lua-language-server
-dev-util/rust-analyzer
+# not possible to express || dev-lang/rust[rust-analyzer] dev-lang/rust-bin[rust-analyzer]
 dev-util/tree-sitter-cli
 sys-devel/clang
 app-text/languagetool
