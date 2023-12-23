@@ -21,13 +21,17 @@ HOMEPAGE="https://organicmaps.app"
 LICENSE="Apache-2.0"
 SLOT="0"
 
+# depend on sys-libs/zlib[minizip] when it is not pulled in as subproject anymore
 RDEPEND="
-	dev-lang/python
-	dev-qt/qtpositioning:6
 	dev-cpp/gflags
-	dev-util/vulkan-headers
+	dev-db/sqlite
+	dev-lang/python
 	dev-libs/boost
 	dev-libs/icu
+	dev-qt/qtpositioning:6
+	dev-util/vulkan-headers
+	media-libs/freetype
+	sys-libs/zlib
 "
 DEPEND="${RDEPEND}"
 
