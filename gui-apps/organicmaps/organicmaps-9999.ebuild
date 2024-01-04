@@ -24,6 +24,7 @@ SLOT="0"
 # depend on sys-libs/zlib[minizip] when it is not pulled in as subproject anymore
 RDEPEND="
 	dev-cpp/gflags
+	dev-cpp/gtest
 	dev-db/sqlite
 	dev-lang/python
 	dev-libs/boost
