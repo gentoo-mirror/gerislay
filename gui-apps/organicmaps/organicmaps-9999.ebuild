@@ -30,6 +30,7 @@ RDEPEND="
 	dev-libs/boost
 	dev-libs/icu
 	dev-libs/jansson
+	dev-libs/pugixml
 	dev-libs/utfcpp
 	dev-qt/qtpositioning:6
 	dev-util/vulkan-headers
