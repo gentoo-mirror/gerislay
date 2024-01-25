@@ -19,6 +19,9 @@ SLOT="0"
 KEYWORDS=""
 IUSE=""
 
+DEPEND="dev-python/luadata[${PYTHON_USEDEP}]"
+RDEPEND="${DEPEND}"
+
 distutils_enable_sphinx docs
 distutils_enable_tests setup.py
 
