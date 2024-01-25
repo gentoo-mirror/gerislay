@@ -4,7 +4,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{8..11} pypy3 )
+PYTHON_COMPAT=( python3_{9..12} pypy3 )
 
 inherit distutils-r1 git-r3
 
@@ -18,6 +18,9 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS=""
 IUSE=""
+
+DEPEND="dev-python/luadata[${PYTHON_USEDEP}]"
+RDEPEND="${DEPEND}"
 
 distutils_enable_sphinx docs
 distutils_enable_tests setup.py
