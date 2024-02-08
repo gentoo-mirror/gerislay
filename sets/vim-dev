@@ -3,7 +3,7 @@ dev-lua/StyLua
 dev-python/debugpy
 dev-python/python-lsp-server
 dev-tex/texlab
-dev-util/lldb
+dev-debug/lldb
 app-text/ltex-ls
 dev-util/lua-language-server
 # not possible to express || dev-lang/rust[rust-analyzer] dev-lang/rust-bin[rust-analyzer]
