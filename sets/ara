@@ -1,5 +1,5 @@
 dev-python/cython
-dev-util/meson
+dev-build/meson
 dev-libs/boost
 dev-python/graph-tool
 dev-python/pydot
