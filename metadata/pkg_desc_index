@@ -19,4 +19,3 @@ media-plugins/hyperion 9999: An opensource 'AmbiLight' implementation (next gene
 media-sound/mixxx 9999: Advanced Digital DJ tool based on Qt
 media-sound/pyjama 0.3.0.1: A Python/GTK application to play free music from Jamendo
 net-libs/libquotient 0.8.0: Qt-based SDK to develop applications for Matrix
-sys-fs/gocryptfs 1.8.0: Encrypted overlay filesystem written in Go
