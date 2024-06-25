@@ -2,11 +2,8 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
-		<email>voyageur@gentoo.org</email>
-		<name>Bernard Cafarelli</name>
-	</maintainer>
-	<maintainer type="project">
-		<email>llvm@gentoo.org</email>
+		<email>gerion.entrup@flump.de</email>
+		<name>Gerion Entrup</name>
 	</maintainer>
 	<use>
 		<flag name="cuda">Build CUDA offloading plugin (only with USE=offload)</flag>

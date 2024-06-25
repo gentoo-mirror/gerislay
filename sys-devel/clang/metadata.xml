@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer type="project">
-		<email>llvm@gentoo.org</email>
+	<maintainer type="person">
+		<email>gerion.entrup@flump.de</email>
+		<name>Gerion Entrup</name>
 	</maintainer>
 	<longdescription>The goal of the Clang project is to create a new C, C++, Objective C and Objective C++ front-end for the LLVM compiler.
 

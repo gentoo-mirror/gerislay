@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer type="project">
-		<email>llvm@gentoo.org</email>
+	<maintainer type="person">
+		<email>gerion.entrup@flump.de</email>
+		<name>Gerion Entrup</name>
 	</maintainer>
 	<use>
 		<flag name="clang">Force building using installed clang (rather
