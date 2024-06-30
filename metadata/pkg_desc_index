@@ -3,7 +3,12 @@ acct-user/hyperion 0: User for media-plugins/hyperion (daemon)
 app-misc/plirc 9999: A Python implementation of Lirc.
 app-text/zotero-bin 5.0.66: A tool to help you collect, organize, cite, and share your research sources.
 dev-cpp/gperftools 2.7: Fast, multi-threaded malloc() and nifty performance analysis tools
+dev-debug/lldb 14.0.6: The LLVM debugger
+dev-libs/libclc 14.0.6: OpenCL C library
+dev-ml/llvm-ocaml 14.0.6: OCaml bindings for LLVM
+dev-python/clang-python 14.0.6: Python bindings for sys-devel/clang
 dev-python/lifxlan 9999: Python library for accessing LIFX devices using the official LIFX LAN protocol.
+dev-python/lit 14.0.6: A stand-alone install of the LLVM suite testing tool
 dev-python/luadata 1.0.5: Serialize Python list & dictionary to Lua tables.
 dev-python/mbdata 9999: MusicBrainz Database Tools
 dev-python/ptpython 3.0.27: Python REPL build on top of prompt_toolkit
@@ -18,3 +23,19 @@ media-plugins/hyperion 9999: An opensource 'AmbiLight' implementation (next gene
 media-sound/mixxx 9999: Advanced Digital DJ tool based on Qt
 media-sound/pyjama 0.3.0.1: A Python/GTK application to play free music from Jamendo
 net-libs/libquotient 0.8.0: Qt-based SDK to develop applications for Matrix
+sys-devel/clang 14.0.6-r4: C language family frontend for LLVM
+sys-devel/clang-common 14.0.6: Common files shared between multiple slots of clang
+sys-devel/clang-runtime 14.0.6: Meta-ebuild for clang runtime libraries
+sys-devel/clang-toolchain-symlinks 14-r2: Symlinks to use Clang on GCC-free system
+sys-devel/lld 14.0.6-r1: The LLVM linker (link editor)
+sys-devel/lld-toolchain-symlinks 14-r2: Symlinks to use LLD on binutils-free system
+sys-devel/llvm 14.0.6-r4: Low Level Virtual Machine
+sys-devel/llvm-common 14.0.6: Common files shared between multiple slots of LLVM
+sys-devel/llvm-toolchain-symlinks 14-r1: Symlinks to use LLVM on binutils-free system
+sys-devel/llvmgold 14: LLVMgold plugin symlink for autoloading
+sys-libs/compiler-rt 14.0.6-r1: Compiler runtime library for clang (built-in part)
+sys-libs/compiler-rt-sanitizers 14.0.6: Compiler runtime libraries for clang (sanitizers & xray)
+sys-libs/libcxx 14.0.6: New implementation of the C++ standard library, targeting C++11
+sys-libs/libcxxabi 14.0.6: Low level support for a standard C++ library
+sys-libs/libomp 14.0.6-r1: OpenMP runtime library for LLVM/clang compiler
+sys-libs/llvm-libunwind 14.0.6-r1: C++ runtime stack unwinder from LLVM

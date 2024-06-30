@@ -12,3 +12,19 @@ media-sound/mixxx:keyfinder - Enable musical key detection support via media-lib
 media-sound/mixxx:lv2 - Add support for Ladspa V2 via media-libs/lilv
 media-sound/mixxx:qtkeychain - Enable Secure credential storage support via dev-libs/qtkeychain
 media-sound/mixxx:shout - Enable broadcasting support via media-libs/libshout
+sys-devel/clang:default-compiler-rt - Use compiler-rt instead of libgcc as the default rtlib for clang
+sys-devel/clang:default-libcxx - Use libc++ instead of libstdc++ as the default stdlib for clang
+sys-devel/clang:default-lld - Use lld as the default linker for clang
+sys-devel/clang:extra - Build extra tools (clangd, clang-tidy and a few more)
+sys-devel/clang:ieee-long-double - Use accelerated 128-bit IEEE long double ABI (ppc64le only)
+sys-devel/clang:static-analyzer - Install the Clang static analyzer
+sys-libs/libcxx:clang - Force building using installed clang (rather than the default CC/CXX; required for testing).
+sys-libs/libcxx:libcxxabi - Build on top of sys-libs/libcxxabi instead of gcc's libsupc++ (avoids depending on gcc).
+sys-libs/libcxx:libunwind - Use libunwind instead of libgcc_s for stack unwinding, thus avoiding dependence on gcc.
+sys-libs/libcxxabi:clang - Force building using installed clang (rather than the default CC/CXX; required for testing).
+sys-libs/libcxxabi:libunwind - Use libunwind instead of libgcc_s for stack unwinding, thus avoiding dependency on gcc
+sys-libs/libomp:cuda - Build CUDA offloading plugin (only with USE=offload)
+sys-libs/libomp:gdb-plugin - Build OMPD GDB plugin
+sys-libs/libomp:hwloc - Enable CPU affinity support via hwloc
+sys-libs/libomp:offload - Support offloading OpenMP using libomptarget
+sys-libs/libomp:ompt - Enable OpenMP Tools Interface support
