@@ -7,6 +7,7 @@ dev-debug/lldb 14.0.6: The LLVM debugger
 dev-libs/libclc 14.0.6: OpenCL C library
 dev-ml/llvm-ocaml 14.0.6: OCaml bindings for LLVM
 dev-python/clang-python 14.0.6: Python bindings for sys-devel/clang
+dev-python/graph-tool 2.71: An efficient python module for manipulation and statistical analysis of graphs
 dev-python/lifxlan 9999: Python library for accessing LIFX devices using the official LIFX LAN protocol.
 dev-python/lit 14.0.6: A stand-alone install of the LLVM suite testing tool
 dev-python/luadata 1.0.5: Serialize Python list & dictionary to Lua tables.
