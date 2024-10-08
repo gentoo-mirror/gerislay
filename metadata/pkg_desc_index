@@ -1,7 +1,6 @@
 acct-group/hyperion 0: Group for media-plugins/hyperion (daemon)
 acct-user/hyperion 0: User for media-plugins/hyperion (daemon)
 app-misc/plirc 9999: A Python implementation of Lirc.
-app-text/zotero-bin 5.0.66: A tool to help you collect, organize, cite, and share your research sources.
 dev-cpp/gperftools 2.7: Fast, multi-threaded malloc() and nifty performance analysis tools
 dev-debug/lldb 14.0.6: The LLVM debugger
 dev-libs/libclc 14.0.6: OpenCL C library
