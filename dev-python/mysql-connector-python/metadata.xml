@@ -6,6 +6,6 @@
 		<name>Gerion Entrup</name>
 	</maintainer>
 	<upstream>
-		<remote-id type="pypi">graph-tool</remote-id>
+		<remote-id type="github">mysql/mysql-connector-python</remote-id>
 	</upstream>
 </pkgmetadata>
