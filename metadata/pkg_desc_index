@@ -1,10 +1,12 @@
 acct-group/hyperion 0: Group for media-plugins/hyperion (daemon)
 acct-user/hyperion 0: User for media-plugins/hyperion (daemon)
 app-misc/plirc 9999: A Python implementation of Lirc.
+dev-cpp/fast_double_parser 0.8.0 9999: Parse strings into double floating-point values
 dev-cpp/gperftools 2.7: Fast, multi-threaded malloc() and nifty performance analysis tools
 dev-db/mitzasql 1.4.4: MySQL command line / text based interface client
 dev-debug/lldb 14.0.6: The LLVM debugger
 dev-libs/libclc 14.0.6: OpenCL C library
+dev-libs/utfcpp 4.0.5: UTF-8 C++ library
 dev-ml/llvm-ocaml 14.0.6: OCaml bindings for LLVM
 dev-python/clang-python 14.0.6: Python bindings for sys-devel/clang
 dev-python/graph-tool 2.79: An efficient python module for manipulation and statistical analysis of graphs
@@ -19,6 +21,7 @@ dev-python/sra 9999: SRA Command Line Tools
 dev-python/versuchung 9999: a toolbox for experiments
 dev-tex/pgf 3.1.9a: The TeX Portable Graphic Format
 games-util/parsec 150.91e: Simple, low-latency game streaming
+gui-apps/organicmaps 9999: Offline maps and navigation using OpenStreetMap data
 media-gfx/leocad 23.03: LeoCAD is a CAD program that uses bricks similar to those found in many toys.
 media-plugins/hyperion 9999: An opensource 'AmbiLight' implementation (next generation)
 media-sound/mixxx 9999: Advanced Digital DJ tool based on Qt

@@ -1,0 +1,16 @@
+BDEPEND=>=dev-vcs/git-1.8.2.1[curl] app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test unpack
+DEPEND=>dev-cpp/fast_double_parser-0.7.0 dev-cpp/gflags dev-db/sqlite dev-lang/python dev-libs/boost dev-libs/expat dev-libs/icu dev-libs/jansson >=dev-libs/utfcpp-4 dev-qt/qtbase:6[gui,network,opengl,widgets] dev-qt/qtpositioning:6 dev-qt/qtsvg:6 >=dev-util/vulkan-headers-1.3.280 media-libs/harfbuzz media-libs/freetype media-libs/libglvnd sys-libs/zlib python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 )
+DESCRIPTION=Offline maps and navigation using OpenStreetMap data
+EAPI=8
+HOMEPAGE=https://organicmaps.app
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=git-r3 python-r1 xdg cmake
+IUSE=python_targets_python3_10 python_targets_python3_11 python_targets_python3_12
+LICENSE=Apache-2.0
+PROPERTIES=live
+RDEPEND=>dev-cpp/fast_double_parser-0.7.0 dev-cpp/gflags dev-db/sqlite dev-lang/python dev-libs/boost dev-libs/expat dev-libs/icu dev-libs/jansson >=dev-libs/utfcpp-4 dev-qt/qtbase:6[gui,network,opengl,widgets] dev-qt/qtpositioning:6 dev-qt/qtsvg:6 >=dev-util/vulkan-headers-1.3.280 media-libs/harfbuzz media-libs/freetype media-libs/libglvnd sys-libs/zlib python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 )
+REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 )
+SLOT=0
+_eclasses_=git-r3	875eb471682d3e1f18da124be97dcc81	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	python-utils-r1	42c5abe4a656a4993a06a4fc61dbdd12	python-r1	2def7a4ce233dfa344f613025c619a23	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	cmake	10a50dfaf728b802fcfd37f8d0da9056
+_md5_=941a3f52cabddfe22fd7957390b797e3
