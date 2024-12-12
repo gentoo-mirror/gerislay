@@ -11,5 +11,5 @@ PROPERTIES=live
 RDEPEND=dev-texlive/texlive-latexrecommended virtual/latex-base
 SLOT=0
 SRC_URI=doc? ( https://github.com/pgf-tikz/pgf/releases/download/3.1.9a/pgfmanual-3.1.9a.pdf -> pgf-3.1.9a-pgfmanual.pdf )
-_eclasses_=git-r3	875eb471682d3e1f18da124be97dcc81	eapi8-dosym	5ac4857ad078256d939c44f7c64197a9	latex-package	b4107369f908088e98dd16d3459a8669
+_eclasses_=git-r3	875eb471682d3e1f18da124be97dcc81	eapi8-dosym	5ac4857ad078256d939c44f7c64197a9	latex-package	77dc0e911cc0a8b36b4b12aa3dcddd2e
 _md5_=be00d8a6ef0959385f0676e7352040f4
