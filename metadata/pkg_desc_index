@@ -6,7 +6,6 @@ dev-cpp/gperftools 2.7: Fast, multi-threaded malloc() and nifty performance anal
 dev-db/mitzasql 1.4.4: MySQL command line / text based interface client
 dev-debug/lldb 14.0.6: The LLVM debugger
 dev-libs/libclc 14.0.6: OpenCL C library
-dev-libs/utfcpp 4.0.5: UTF-8 C++ library
 dev-ml/llvm-ocaml 14.0.6: OCaml bindings for LLVM
 dev-python/clang-python 14.0.6: Python bindings for sys-devel/clang
 dev-python/graph-tool 2.79: An efficient python module for manipulation and statistical analysis of graphs
