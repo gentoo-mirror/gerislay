@@ -3,10 +3,10 @@ dev-lua/StyLua
 dev-python/debugpy
 dev-python/python-lsp-server
 dev-tex/texlab
-dev-debug/lldb
+llvm-core/lldb
 app-text/ltex-ls
 dev-util/lua-language-server
 # not possible to express || dev-lang/rust[rust-analyzer] dev-lang/rust-bin[rust-analyzer]
 dev-util/tree-sitter-cli
-sys-devel/clang
+llvm-core/clang
 app-text/languagetool
