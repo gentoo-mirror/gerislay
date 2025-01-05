@@ -4,8 +4,6 @@ app-misc/plirc 9999: A Python implementation of Lirc.
 dev-cpp/fast_double_parser 0.8.0 9999: Parse strings into double floating-point values
 dev-cpp/gperftools 2.7: Fast, multi-threaded malloc() and nifty performance analysis tools
 dev-db/mitzasql 1.4.4: MySQL command line / text based interface client
-dev-debug/lldb 14.0.6: The LLVM debugger
-dev-libs/libclc 14.0.6: OpenCL C library
 dev-ml/llvm-ocaml 14.0.6: OCaml bindings for LLVM
 dev-python/clang-python 14.0.6: Python bindings for sys-devel/clang
 dev-python/graph-tool 2.79: An efficient python module for manipulation and statistical analysis of graphs
@@ -21,24 +19,26 @@ dev-python/versuchung 9999: a toolbox for experiments
 dev-tex/pgf 3.1.9a: The TeX Portable Graphic Format
 games-util/parsec 150.91e: Simple, low-latency game streaming
 gui-apps/organicmaps 9999: Offline maps and navigation using OpenStreetMap data
+llvm-core/clang 14.0.6-r4: C language family frontend for LLVM
+llvm-core/clang-common 14.0.6: Common files shared between multiple slots of clang
+llvm-core/clang-runtime 14.0.6: Meta-ebuild for clang runtime libraries
+llvm-core/clang-toolchain-symlinks 14-r2: Symlinks to use Clang on GCC-free system
+llvm-core/libclc 14.0.6: OpenCL C library
+llvm-core/lld 14.0.6-r1: The LLVM linker (link editor)
+llvm-core/lld-toolchain-symlinks 14-r2: Symlinks to use LLD on binutils-free system
+llvm-core/lldb 14.0.6: The LLVM debugger
+llvm-core/llvm 14.0.6-r4: Low Level Virtual Machine
+llvm-core/llvm-common 14.0.6: Common files shared between multiple slots of LLVM
+llvm-core/llvm-toolchain-symlinks 14-r1: Symlinks to use LLVM on binutils-free system
+llvm-core/llvmgold 14: LLVMgold plugin symlink for autoloading
+llvm-runtimes/compiler-rt 14.0.6-r1: Compiler runtime library for clang (built-in part)
+llvm-runtimes/compiler-rt-sanitizers 14.0.6: Compiler runtime libraries for clang (sanitizers & xray)
+llvm-runtimes/libcxx 14.0.6: New implementation of the C++ standard library, targeting C++11
+llvm-runtimes/libcxxabi 14.0.6: Low level support for a standard C++ library
+llvm-runtimes/libunwind 14.0.6-r1: C++ runtime stack unwinder from LLVM
+llvm-runtimes/openmp 14.0.6-r1: OpenMP runtime library for LLVM/clang compiler
 media-gfx/leocad 23.03: LeoCAD is a CAD program that uses bricks similar to those found in many toys.
 media-plugins/hyperion 9999: An opensource 'AmbiLight' implementation (next generation)
 media-sound/mixxx 9999: Advanced Digital DJ tool based on Qt
 media-sound/pyjama 0.3.0.1: A Python/GTK application to play free music from Jamendo
 net-libs/libquotient 0.8.0: Qt-based SDK to develop applications for Matrix
-sys-devel/clang 14.0.6-r4: C language family frontend for LLVM
-sys-devel/clang-common 14.0.6: Common files shared between multiple slots of clang
-sys-devel/clang-runtime 14.0.6: Meta-ebuild for clang runtime libraries
-sys-devel/clang-toolchain-symlinks 14-r2: Symlinks to use Clang on GCC-free system
-sys-devel/lld 14.0.6-r1: The LLVM linker (link editor)
-sys-devel/lld-toolchain-symlinks 14-r2: Symlinks to use LLD on binutils-free system
-sys-devel/llvm 14.0.6-r4: Low Level Virtual Machine
-sys-devel/llvm-common 14.0.6: Common files shared between multiple slots of LLVM
-sys-devel/llvm-toolchain-symlinks 14-r1: Symlinks to use LLVM on binutils-free system
-sys-devel/llvmgold 14: LLVMgold plugin symlink for autoloading
-sys-libs/compiler-rt 14.0.6-r1: Compiler runtime library for clang (built-in part)
-sys-libs/compiler-rt-sanitizers 14.0.6: Compiler runtime libraries for clang (sanitizers & xray)
-sys-libs/libcxx 14.0.6: New implementation of the C++ standard library, targeting C++11
-sys-libs/libcxxabi 14.0.6: Low level support for a standard C++ library
-sys-libs/libomp 14.0.6-r1: OpenMP runtime library for LLVM/clang compiler
-sys-libs/llvm-libunwind 14.0.6-r1: C++ runtime stack unwinder from LLVM
