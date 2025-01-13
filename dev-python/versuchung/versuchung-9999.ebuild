@@ -4,7 +4,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{9..12} pypy3 )
+PYTHON_COMPAT=( python3_{10..13} pypy3 )
 
 inherit distutils-r1 git-r3
 
@@ -19,7 +19,10 @@ SLOT="0"
 KEYWORDS=""
 IUSE=""
 
-DEPEND="dev-python/luadata[${PYTHON_USEDEP}]"
+DEPEND="
+  dev-python/luadata[${PYTHON_USEDEP}]
+  dev-python/pandas[${PYTHON_USEDEP}]
+"
 RDEPEND="${DEPEND}"
 
 distutils_enable_sphinx docs
