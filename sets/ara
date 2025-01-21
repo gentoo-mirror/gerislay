@@ -7,3 +7,4 @@ llvm-core/llvm:14
 llvm-core/clang:14
 llvm-core/lld:14
 sci-mathematics/z3
+dev-python/versuchung
