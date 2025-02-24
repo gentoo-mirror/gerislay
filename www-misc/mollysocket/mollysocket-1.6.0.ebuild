@@ -397,11 +397,17 @@ DEPEND="
 	dev-db/sqlite
 	dev-libs/openssl
 "
-RDEPEND="${DEPEND}"
+RDEPEND="
+	${DEPEND}
+	acct-user/${PN}
+	acct-group/${PN}
+"
 
 src_install() {
 	cargo_src_install
 
+	# use system paths
+	sed -i '/^WorkingDirectory/d;s,/opt/mollysocket/prod.toml,/etc/mollysocket/config.toml,g;s,/opt/mollysocket/ms,/usr/bin/mollysocket,g' mollysocket.service
 	systemd_dounit mollysocket.service
 	# in the next release
 	# systemd_dounit mollysocket-vapid.service
