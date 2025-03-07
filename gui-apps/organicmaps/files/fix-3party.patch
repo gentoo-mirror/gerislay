@@ -1,8 +1,8 @@
 diff --git a/3party/CMakeLists.txt b/3party/CMakeLists.txt
-index d4996e302d..953787945b 100644
+index 57d0592dc3..264d7738d4 100644
 --- a/3party/CMakeLists.txt
 +++ b/3party/CMakeLists.txt
-@@ -41,9 +41,6 @@ if (NOT WITH_SYSTEM_PROVIDED_3PARTY)
+@@ -40,9 +40,6 @@ if (NOT WITH_SYSTEM_PROVIDED_3PARTY)
    # Add pugixml library.
    add_subdirectory(pugixml)
  
@@ -12,7 +12,7 @@ index d4996e302d..953787945b 100644
    if (NOT PLATFORM_LINUX)
      add_subdirectory(freetype)
      add_subdirectory(icu)
-@@ -55,6 +52,9 @@ if (NOT WITH_SYSTEM_PROVIDED_3PARTY)
+@@ -54,6 +51,9 @@ if (NOT WITH_SYSTEM_PROVIDED_3PARTY)
    target_include_directories(utf8cpp INTERFACE "${OMIM_ROOT}/3party/utfcpp/source")
  endif()
  
@@ -21,4 +21,4 @@ index d4996e302d..953787945b 100644
 +
  add_subdirectory(agg)
  add_subdirectory(bsdiff-courgette)
- add_subdirectory(liboauthcpp)
+ add_subdirectory(minizip)

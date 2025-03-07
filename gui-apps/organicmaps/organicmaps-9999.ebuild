@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{7..12} )
+PYTHON_COMPAT=( python3_{11..13} )
 inherit git-r3 python-r1 xdg cmake
 EGIT_REPO_URI="https://github.com/${PN}/${PN}.git"
 # this URL is to make the tests compile since organicmaps usually dynamically clones the repo
@@ -12,9 +12,9 @@ EGIT_WORLD_FEED_REPO_URI="https://github.com/${PN}/world_feed_integration_tests_
 # organicmaps gets more and more system libraries, we use as many
 # as currently possible, use submodules for the rest
 EGIT_SUBMODULES=(
-	3party/just_gtfs
+	3party/just_gtfs  # header contains #include 3party/just_gtfs
 	3party/protobuf/protobuf # wait for https://github.com/organicmaps/organicmaps/pull/6310
-	3party/fast_obj
+	3party/fast_obj  # header contains #include 3party/fast_obj
 )
 
 DESCRIPTION="Offline maps and navigation using OpenStreetMap data"
@@ -63,11 +63,6 @@ src_unpack() {
 }
 
 src_configure() {
-	# organicmaps wants a ./configure.sh execution.
-	# However, this setups mainly stuff for Android and XCode builds that we don't need.
-	# We need just this line here
-	cp private_default.h private.h || die
-
 	CMAKE_BUILD_TYPE="RelWithDebInfo"
 	local mycmakeargs=(
 		-DWITH_SYSTEM_PROVIDED_3PARTY=yes
@@ -81,7 +76,7 @@ src_install() {
 	cmake_src_install
 
 	# Remove test data
-	rm -rf "${ED}"/usr/share/${PN}/data/world_feed_integration_tests_data || die
+	rm -rf "${ED}"/usr/share/${PN}/data/test_data || die
 }
 
 pkg_postinst() {
