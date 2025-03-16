@@ -8,3 +8,14 @@ llvm-core/clang:14
 llvm-core/lld:14
 sci-mathematics/z3
 dev-python/versuchung
+app-emulation/qemu[qemu_softmmu_targets_aarch64]
+net-libs/nodejs[npm]
+dev-lang/go
+dev-python/pip
+dev-python/pyelftools
+dev-python/pykwalify
+dev-python/pyyaml
+dev-util/cloc
+cross-riscv-none-elf/newlib[nano]
+cross-arm-none-eabi/newlib[nano]
+dev-python/pyserial
