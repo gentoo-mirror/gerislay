@@ -1,0 +1,27 @@
+From c3340258a7f44fdd635872ea0af9f1ab5f103fb3 Mon Sep 17 00:00:00 2001
+From: Gerion Entrup <gerion.entrup@flump.de>
+Date: Sat, 22 Mar 2025 11:02:37 +0100
+Subject: [PATCH] fix integration of search_tests_support
+
+---
+ search/CMakeLists.txt | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/search/CMakeLists.txt b/search/CMakeLists.txt
+index 94da4418a2..00d9819aff 100644
+--- a/search/CMakeLists.txt
++++ b/search/CMakeLists.txt
+@@ -180,7 +180,9 @@ target_link_libraries(${PROJECT_NAME}
+ )
+ 
+ if(PLATFORM_DESKTOP)
+-  add_subdirectory(search_tests_support)
++  if (NOT SKIP_TESTS)
++    add_subdirectory(search_tests_support)
++  endif()
+   add_subdirectory(search_quality)
+ endif()
+ 
+-- 
+2.48.1
+
