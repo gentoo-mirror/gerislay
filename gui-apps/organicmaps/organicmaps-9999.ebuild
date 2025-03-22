@@ -51,6 +51,8 @@ DEPEND="${RDEPEND}"
 PATCHES=(
 	"${FILESDIR}"/fix-3party.patch  # upstream PR #6310
 	"${FILESDIR}"/fix-jansson.patch  # upstream PR #7982
+	"${FILESDIR}"/make-DEV_SANDBOX-optional.patch
+	"${FILESDIR}"/fix-integration-of-search_tests_support.patch
 )
 
 WORLD_FEED_TESTS_S="${WORKDIR}/world_feed_integration_tests_data-${PV}"
@@ -66,6 +68,9 @@ src_configure() {
 	CMAKE_BUILD_TYPE="RelWithDebInfo"
 	local mycmakeargs=(
 		-DWITH_SYSTEM_PROVIDED_3PARTY=yes
+		-DDEV_SANDBOX=off  # TODO: uses a bunch of other dependencies, package and enable it with a use flag
+		-DSKIP_TOOLS=yes # TODO: mostly tests, enable with use flag
+		-DSKIP_TESTS=yes # TODO: mostly tests, enable with use flag
 		-DBUILD_SHARED_LIBS=off
 		-DTEST_DATA_REPO_URL="${WORLD_FEED_TESTS_S}"
 	)
