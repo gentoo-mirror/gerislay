@@ -5,12 +5,8 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{11..13} )
 inherit git-r3 python-r1 xdg cmake
-EGIT_REPO_URI="https://github.com/${PN}/${PN}.git"
-# this URL is to make the tests compile since organicmaps usually dynamically clones the repo
-# maybe a better way would be to skip the test
-EGIT_WORLD_FEED_REPO_URI="https://github.com/${PN}/world_feed_integration_tests_data.git"
-# organicmaps gets more and more system libraries, we use as many
-# as currently possible, use submodules for the rest
+EGIT_REPO_URI="https://git.omaps.dev/${PN}/${PN}.git"
+
 EGIT_SUBMODULES=(
 	3party/just_gtfs  # header contains #include 3party/just_gtfs
 	3party/protobuf/protobuf # wait for https://github.com/organicmaps/organicmaps/pull/6310
@@ -55,15 +51,6 @@ PATCHES=(
 	"${FILESDIR}"/fix-integration-of-search_tests_support.patch
 )
 
-WORLD_FEED_TESTS_S="${WORKDIR}/world_feed_integration_tests_data-${PV}"
-
-src_unpack() {
-	git-r3_fetch
-	git-r3_checkout
-	git-r3_fetch "${EGIT_WORLD_FEED_REPO_URI}"
-	git-r3_checkout "${EGIT_WORLD_FEED_REPO_URI}" "${WORLD_FEED_TESTS_S}"
-}
-
 src_configure() {
 	CMAKE_BUILD_TYPE="RelWithDebInfo"
 	local mycmakeargs=(
@@ -72,7 +59,6 @@ src_configure() {
 		-DSKIP_TOOLS=yes # TODO: mostly tests, enable with use flag
 		-DSKIP_TESTS=yes # TODO: mostly tests, enable with use flag
 		-DBUILD_SHARED_LIBS=off
-		-DTEST_DATA_REPO_URL="${WORLD_FEED_TESTS_S}"
 	)
 	cmake_src_configure
 }
