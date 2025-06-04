@@ -2,17 +2,12 @@ acct-group/hyperion 0: Group for media-plugins/hyperion (daemon)
 acct-group/mollysocket 0: Group for mollysocket
 acct-user/hyperion 0: User for media-plugins/hyperion (daemon)
 acct-user/mollysocket 0: User for mollysocket
-app-misc/plirc 9999: A Python implementation of Lirc.
 dev-cpp/fast_double_parser 0.8.0 9999: Parse strings into double floating-point values
 dev-cpp/gperftools 2.7: Fast, multi-threaded malloc() and nifty performance analysis tools
 dev-db/mitzasql 1.4.4: MySQL command line / text based interface client
 dev-python/graph-tool 2.79: An efficient python module for manipulation and statistical analysis of graphs
-dev-python/luadata 1.0.5: Serialize Python list & dictionary to Lua tables.
 dev-python/mysql-connector-python 9.1.0: Python client library for MariaDB/MySQL
-dev-python/ptpython 3.0.27: Python REPL build on top of prompt_toolkit
-dev-python/rauth 0.7.2: A Python library for OAuth 1.0/a, 2.0, and Ofly.
 dev-python/sra 9999: SRA Command Line Tools
-dev-python/versuchung 9999: a toolbox for experiments
 dev-tex/pgf 3.1.9a: The TeX Portable Graphic Format
 games-util/parsec 150.91e: Simple, low-latency game streaming
 gui-apps/organicmaps 9999: Offline maps and navigation using OpenStreetMap data
