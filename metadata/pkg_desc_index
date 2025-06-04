@@ -8,6 +8,7 @@ dev-db/mitzasql 1.4.4: MySQL command line / text based interface client
 dev-python/graph-tool 2.79: An efficient python module for manipulation and statistical analysis of graphs
 dev-python/mbdata 9999: MusicBrainz Database Tools
 dev-python/mysql-connector-python 9.1.0: Python client library for MariaDB/MySQL
+dev-python/rauth 0.7.2: A Python library for OAuth 1.0/a, 2.0, and Ofly.
 dev-python/sra 9999: SRA Command Line Tools
 dev-tex/pgf 3.1.9a: The TeX Portable Graphic Format
 games-util/parsec 150.91e: Simple, low-latency game streaming
