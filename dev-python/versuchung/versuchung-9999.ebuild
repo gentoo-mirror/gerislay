@@ -2,9 +2,10 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=7
+EAPI=8
 
 PYTHON_COMPAT=( python3_{10..13} pypy3 )
+DISTUTILS_USE_PEP517=setuptools
 
 inherit distutils-r1 git-r3
 
@@ -17,7 +18,8 @@ SRC_URI=""
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS=""
-IUSE=""
+IUSE="test"
+RESTRICT="!test? ( test )"
 
 DEPEND="
   dev-python/luadata[${PYTHON_USEDEP}]
@@ -25,6 +27,20 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+BDEPEND="
+    test? (
+        dev-build/make
+		sys-apps/findutils
+    )
+"
+
+PATCHES=(
+	"${FILESDIR}"/dont-run-jupyter-tests.patch
+)
+
 distutils_enable_sphinx docs
-distutils_enable_tests setup.py
+
+python_test() {
+	make -C tests PYTHON="${EPYTHON}" || die
+}
 
