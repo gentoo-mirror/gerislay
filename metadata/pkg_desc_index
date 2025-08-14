@@ -2,25 +2,22 @@ acct-group/hyperion 0: Group for media-plugins/hyperion (daemon)
 acct-group/mollysocket 0: Group for mollysocket
 acct-user/hyperion 0: User for media-plugins/hyperion (daemon)
 acct-user/mollysocket 0: User for mollysocket
+app-misc/plirc 9999: A Python implementation of Lirc.
 dev-cpp/fast_double_parser 0.8.0 9999: Parse strings into double floating-point values
 dev-cpp/gperftools 2.7: Fast, multi-threaded malloc() and nifty performance analysis tools
 dev-db/mitzasql 1.4.4: MySQL command line / text based interface client
 dev-python/graph-tool 2.79: An efficient python module for manipulation and statistical analysis of graphs
+dev-python/lifxlan 9999: Python library for accessing LIFX devices using the official LIFX LAN protocol.
+dev-python/luadata 1.0.5: Serialize Python list & dictionary to Lua tables.
 dev-python/mbdata 9999: MusicBrainz Database Tools
 dev-python/mysql-connector-python 9.1.0: Python client library for MariaDB/MySQL
+dev-python/ptpython 3.0.30: Python REPL build on top of prompt_toolkit
 dev-python/rauth 0.7.2: A Python library for OAuth 1.0/a, 2.0, and Ofly.
 dev-python/sra 9999: SRA Command Line Tools
+dev-python/versuchung 9999: a toolbox for experiments
 dev-tex/pgf 3.1.9a: The TeX Portable Graphic Format
 games-util/parsec 150.91e: Simple, low-latency game streaming
 gui-apps/organicmaps 9999: Offline maps and navigation using OpenStreetMap data
-llvm-core/clang-common 14.0.6: Common files shared between multiple slots of clang
-llvm-core/clang-runtime 14.0.6: Meta-ebuild for clang runtime libraries
-llvm-core/clang-toolchain-symlinks 14-r2: Symlinks to use Clang on GCC-free system
-llvm-core/lld-toolchain-symlinks 14-r2: Symlinks to use LLD on binutils-free system
-llvm-core/llvm 14.0.6-r4: Low Level Virtual Machine
-llvm-core/llvm-common 14.0.6: Common files shared between multiple slots of LLVM
-llvm-core/llvm-toolchain-symlinks 14-r1: Symlinks to use LLVM on binutils-free system
-llvm-core/llvmgold 14: LLVMgold plugin symlink for autoloading
 media-gfx/leocad 23.03: LeoCAD is a CAD program that uses bricks similar to those found in many toys.
 media-plugins/hyperion 9999: An opensource 'AmbiLight' implementation (next generation)
 media-sound/mixxx 9999: Advanced Digital DJ tool based on Qt
